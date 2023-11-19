@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app_flutter/common/constants/size_constants.dart';
-import 'package:movie_app_flutter/common/extensions/size_extensions.dart';
 import 'package:movie_app_flutter/common/screenutil/screenutil.dart';
 import 'package:movie_app_flutter/common/utils/extensions.dart';
 import 'package:movie_app_flutter/domain/entities/movie_entity.dart';
@@ -23,7 +22,7 @@ class MovieTabCardWidget extends StatelessWidget {
           children: [
             Expanded(
               child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(Sizes.dimen_12.w)),
+                borderRadius: const BorderRadius.all(Radius.circular(Sizes.dimen_12)),
                 child: Image.network(
                   "${Endpoints.baseUrlImage}${movie.posterPath}",
                   fit: BoxFit.cover,
@@ -31,10 +30,10 @@ class MovieTabCardWidget extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(Sizes.dimen_10.w),
+              padding: const EdgeInsets.all(Sizes.dimen_10),
               child: Text(
                 movie.title.intelliTrim(15),
-                style: PrimaryFont.semiBold(Sizes.dimen_14.sp).copyWith(color: Colors.white),
+                style: PrimaryFont.semiBold(Sizes.dimen_15).copyWith(color: Colors.white),
                 maxLines: 1,
               ),
             )

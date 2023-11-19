@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app_flutter/common/constants/size_constants.dart';
-import 'package:movie_app_flutter/common/extensions/size_extensions.dart';
 import 'package:movie_app_flutter/theme/theme.dart';
 
 class NavigationListItem extends StatelessWidget {
@@ -25,7 +24,7 @@ class NavigationListItem extends StatelessWidget {
         child: ListTile(
           title: Text(
             title,
-            style: PrimaryFont.medium(Sizes.dimen_18.sp)
+            style: PrimaryFont.medium(Sizes.dimen_18)
                 .copyWith(color: Colors.white),
           ),
         ),
@@ -45,7 +44,7 @@ class NavigationSubListItem extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        padding: EdgeInsets.only(left: Sizes.dimen_18.w),
+        padding: const EdgeInsets.only(left: Sizes.dimen_18),
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -57,7 +56,7 @@ class NavigationSubListItem extends StatelessWidget {
         child: ListTile(
           title: Text(
             title,
-            style: PrimaryFont.medium(Sizes.dimen_16.sp)
+            style: PrimaryFont.medium(Sizes.dimen_16)
                 .copyWith(color: Colors.white),
           ),
         ),

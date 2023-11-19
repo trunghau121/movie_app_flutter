@@ -11,6 +11,7 @@ class Sizes {
   static const double dimen_10 = 10;
   static const double dimen_12 = 12;
   static const double dimen_14 = 14;
+  static const double dimen_15 = 15;
   static const double dimen_16 = 16;
   static const double dimen_18 = 18;
   static const double dimen_20 = 20;

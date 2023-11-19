@@ -9,6 +9,8 @@ abstract class MovieCarouselState extends Equatable {
 
 class MovieCarouselInitial extends MovieCarouselState {}
 
+class MovieCarouselLoading extends MovieCarouselState {}
+
 class MovieCarouselError extends MovieCarouselState {
   final String contentError;
   final DioExceptionType exceptionType;

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app_flutter/common/constants/size_constants.dart';
-import 'package:movie_app_flutter/common/extensions/size_extensions.dart';
 import 'package:movie_app_flutter/data/remote/endpoints.dart';
 
 class MovieCardWidget extends StatelessWidget {
@@ -14,11 +13,11 @@ class MovieCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       elevation: 10,
-      borderRadius: BorderRadius.circular(Sizes.dimen_16.w),
+      borderRadius: BorderRadius.circular(Sizes.dimen_16),
       child: GestureDetector(
         onTap: () => {},
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(Sizes.dimen_16.w),
+          borderRadius: BorderRadius.circular(Sizes.dimen_16),
           child: Image.network("${Endpoints.baseUrlImage}$posterPath", fit: BoxFit.cover,),
         ),
       ),

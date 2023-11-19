@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app_flutter/common/extensions/size_extensions.dart';
 import 'package:movie_app_flutter/theme/theme.dart';
 import '../../common/constants/size_constants.dart';
 import 'button.dart';
@@ -14,7 +13,7 @@ class AppErrorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: Sizes.dimen_32.w),
+      padding: const EdgeInsets.symmetric(horizontal: Sizes.dimen_32),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -22,7 +21,7 @@ class AppErrorWidget extends StatelessWidget {
           Text(
             contentError,
             textAlign: TextAlign.center,
-            style: PrimaryFont.medium(15),
+            style: PrimaryFont.medium(15).copyWith(color: Colors.white),
           ),
           ButtonBar(
             children: [

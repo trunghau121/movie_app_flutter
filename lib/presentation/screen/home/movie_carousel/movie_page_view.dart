@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app_flutter/common/extensions/size_extensions.dart';
 import 'package:movie_app_flutter/presentation/bloc/movie_backdrop/movie_backdrop_cubit.dart';
 import 'package:movie_app_flutter/presentation/screen/home/movie_carousel/animation_movie_card_widget.dart';
 import '../../../../common/constants/size_constants.dart';
@@ -26,7 +25,7 @@ class _MoviePageViewState extends State<MoviePageView> {
     _pageController = PageController(
       initialPage: widget.initPage,
       keepPage: false,
-      viewportFraction: 0.7,
+      viewportFraction: 0.65,
     );
     super.initState();
   }
@@ -40,7 +39,7 @@ class _MoviePageViewState extends State<MoviePageView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: Sizes.dimen_16.h, bottom: Sizes.dimen_4.h),
+      margin: const EdgeInsets.only(top: Sizes.dimen_24, bottom: Sizes.dimen_4),
       height: ScreenUtil.screenHeight * 0.35,
       child: PageView.builder(
         controller: _pageController,

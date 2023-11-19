@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app_flutter/common/constants/languages.dart';
 import 'package:movie_app_flutter/common/constants/size_constants.dart';
-import 'package:movie_app_flutter/common/extensions/size_extensions.dart';
 import 'package:movie_app_flutter/common/utils/extensions.dart';
 import 'package:movie_app_flutter/presentation/bloc/language/language_cubit.dart';
 import 'package:movie_app_flutter/presentation/screen/drawer/navigation_expand_list_item.dart';
@@ -23,21 +22,21 @@ class NavigationDrawerWidget extends StatelessWidget {
           ),
         ],
       ),
-      width: Sizes.dimen_300.w,
+      width: Sizes.dimen_300,
       child: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(
-                top: Sizes.dimen_8.w,
-                bottom: Sizes.dimen_10.h,
+              padding: const EdgeInsets.only(
+                top: Sizes.dimen_40,
+                bottom: Sizes.dimen_40,
               ),
               child: Center(
                 child: Text(
                   "MOVIE",
                   textAlign: TextAlign.center,
-                  style: PrimaryFont.semiBold(Sizes.dimen_40.sp)
+                  style: PrimaryFont.semiBold(Sizes.dimen_40)
                       .copyWith(color: Colors.white),
                 ),
               ),

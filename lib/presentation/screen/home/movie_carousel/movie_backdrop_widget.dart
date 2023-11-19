@@ -2,7 +2,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app_flutter/common/constants/size_constants.dart';
-import 'package:movie_app_flutter/common/extensions/size_extensions.dart';
 import 'package:movie_app_flutter/common/screenutil/screenutil.dart';
 import 'package:movie_app_flutter/data/remote/endpoints.dart';
 import 'package:movie_app_flutter/domain/entities/movie_entity.dart';
@@ -17,8 +16,8 @@ class MovieBackdropWidget extends StatelessWidget {
       alignment: Alignment.topCenter,
       heightFactor: 0.7,
       child: ClipRRect(
-        borderRadius: BorderRadius.vertical(
-          bottom: Radius.circular(Sizes.dimen_40.w),
+        borderRadius: const BorderRadius.vertical(
+          bottom: Radius.circular(Sizes.dimen_40),
         ),
         child: Stack(
           fit: StackFit.expand,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app_flutter/common/constants/languages.dart';
-import 'package:movie_app_flutter/common/extensions/size_extensions.dart';
 import 'package:movie_app_flutter/common/utils/extensions.dart';
 import 'package:movie_app_flutter/presentation/bloc/movie_tabbed/movie_tabbed_cubit.dart';
 import 'package:movie_app_flutter/presentation/bloc/movie_tabbed/movie_tabbed_state.dart';
@@ -37,21 +36,21 @@ class _MovieTabbedWidgetState extends State<MovieTabbedWidget>
           indicatorWeight: 3.0,
           tabs: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: Sizes.dimen_3.h),
+              padding: const EdgeInsets.symmetric(vertical: Sizes.dimen_8),
               child: Text(Languages.popular.translator(context),
-                  style: PrimaryFont.medium(Sizes.dimen_16.sp)
+                  style: PrimaryFont.medium(Sizes.dimen_16)
                       .copyWith(color: Colors.white)),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: Sizes.dimen_3.h),
+              padding: const EdgeInsets.symmetric(vertical: Sizes.dimen_8),
               child: Text(Languages.now.translator(context),
-                  style: PrimaryFont.medium(Sizes.dimen_16.sp)
+                  style: PrimaryFont.medium(Sizes.dimen_16)
                       .copyWith(color: Colors.white)),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: Sizes.dimen_3.h),
+              padding: const EdgeInsets.symmetric(vertical: Sizes.dimen_8),
               child: Text(Languages.soon.translator(context),
-                  style: PrimaryFont.medium(Sizes.dimen_16.sp)
+                  style: PrimaryFont.medium(Sizes.dimen_16)
                       .copyWith(color: Colors.white)),
             )
           ],
@@ -74,10 +73,10 @@ class _MovieTabbedWidgetState extends State<MovieTabbedWidget>
                 ),
               );
             } else {
-              return Expanded(
+              return const Expanded(
                 child: Center(
                   child: LoadingCircle(
-                    size: Sizes.dimen_100.w,
+                    size: Sizes.dimen_230,
                   ),
                 ),
               );

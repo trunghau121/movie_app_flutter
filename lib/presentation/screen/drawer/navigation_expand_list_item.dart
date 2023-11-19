@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app_flutter/common/extensions/size_extensions.dart';
 import 'package:movie_app_flutter/presentation/screen/drawer/navigation_list_item.dart';
 
 import '../../../common/constants/size_constants.dart';
@@ -30,7 +29,7 @@ class NavigationExpanedListItem extends StatelessWidget {
       child: ExpansionTile(
         title: Text(
           title,
-          style: PrimaryFont.medium(Sizes.dimen_18.sp)
+          style: PrimaryFont.medium(Sizes.dimen_18)
               .copyWith(color: Colors.white),
         ),
         children: [

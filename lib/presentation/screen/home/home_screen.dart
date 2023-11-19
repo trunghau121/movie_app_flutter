@@ -4,7 +4,9 @@ import 'package:movie_app_flutter/presentation/bloc/movie_tabbed/movie_tabbed_cu
 import 'package:movie_app_flutter/presentation/screen/drawer/navigation_drawer_widget.dart';
 import 'package:movie_app_flutter/presentation/screen/home/movie_carousel/movie_carousel_widget.dart';
 import 'package:movie_app_flutter/presentation/screen/home/movie_tabbed/movie_tabbed_widget.dart';
+import 'package:movie_app_flutter/presentation/screen/loading/loading_circle.dart';
 import 'package:movie_app_flutter/presentation/widgets/app_error_widget.dart';
+import '../../../common/constants/size_constants.dart';
 import '../../../di/get_it.dart';
 import '../../bloc/movie_backdrop/movie_backdrop_cubit.dart';
 import '../../bloc/movie_carousel/movie_carousel_cubit.dart';
@@ -74,7 +76,14 @@ class _HomeScreenState extends State<HomeScreen> {
               return AppErrorWidget(
                 contentError: state.contentError,
                 exceptionType: state.exceptionType,
-                onPressed: () => {},
+                onPressed: () {
+                  _carouselCubit.loadCarousel();
+                  _movieTabbedCubit.loadMovieTabbed(0);
+                },
+              );
+            } else if (state is MovieCarouselLoading) {
+              return const Center(
+               child: LoadingCircle(size: Sizes.dimen_230),
               );
             }
             return const SizedBox.shrink();

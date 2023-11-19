@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class ScreenUtil {
   static late ScreenUtil _instance;
-  static const int defaultWidth = 414;
-  static const int defaultHeight = 896;
+  static const int defaultWidth = 440;
+  static const int defaultHeight = 1040;
 
   /// Size of the phone in UI Design , px
   late num uiWidthPx;
@@ -35,10 +35,10 @@ class ScreenUtil {
     _instance.uiHeightPx = height;
     _instance.allowFontScaling = allowFontScaling;
     _pixelRatio = View.of(context).devicePixelRatio;
-    _screenWidth = View.of(context).physicalSize.width;
-    _screenHeight = View.of(context).physicalSize.height;
-    _statusBarHeight = View.of(context).padding.top;
-    _bottomBarHeight = View.of(context).padding.bottom;
+    _screenWidth = MediaQuery.of(context).size.width;
+    _screenHeight = MediaQuery.of(context).size.height;
+    _statusBarHeight = MediaQuery.of(context).padding.top;
+    _bottomBarHeight = MediaQuery.of(context).padding.bottom;
     _textScaleFactor = WidgetsBinding.instance.platformDispatcher.textScaleFactor;
   }
 
@@ -49,22 +49,14 @@ class ScreenUtil {
   static double get pixelRatio => _pixelRatio;
 
   /// The horizontal extent of this size.
-  static double get screenWidth => _screenWidth / _pixelRatio;
+  static double get screenWidth => _screenWidth;
 
   ///The vertical extent of this size. dp
-  static double get screenHeight => _screenHeight / _pixelRatio;
-
-  /// The vertical extent of this size. px
-  static double get screenWidthPx => _screenWidth;
-
-  /// The vertical extent of this size. px
-  static double get screenHeightPx => _screenHeight;
+  static double get screenHeight => _screenHeight;
 
   /// The offset from the top
-  static double get statusBarHeight => _statusBarHeight / _pixelRatio;
+  static double get statusBarHeight => _statusBarHeight;
 
-  /// The offset from the top
-  static double get statusBarHeightPx => _statusBarHeight;
 
   /// The offset from the bottom.
   static double get bottomBarHeight => _bottomBarHeight;

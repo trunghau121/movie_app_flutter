@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app_flutter/theme/theme.dart';
 import '../../common/constants/size_constants.dart';
-import '../../common/extensions/size_extensions.dart';
 
 class Button extends StatelessWidget {
   final String text;
@@ -26,19 +25,19 @@ class Button extends StatelessWidget {
               ? [kColorVulcan, kColorViolet]
               : [Colors.grey, Colors.grey],
         ),
-        borderRadius: BorderRadius.all(
-          Radius.circular(Sizes.dimen_20.w),
+        borderRadius: const BorderRadius.all(
+          Radius.circular(Sizes.dimen_20),
         ),
       ),
-      padding: EdgeInsets.symmetric(horizontal: Sizes.dimen_16.w),
-      margin: EdgeInsets.symmetric(vertical: Sizes.dimen_10.h),
-      height: Sizes.dimen_16.h,
+      padding: const EdgeInsets.symmetric(horizontal: Sizes.dimen_16),
+      margin: const EdgeInsets.symmetric(vertical: Sizes.dimen_10),
+      height: Sizes.dimen_16,
       child: TextButton(
         key: const ValueKey('main_button'),
         onPressed: isEnabled ? onPressed : null,
         child: Text(
           text,
-          style: PrimaryFont.medium(Sizes.dimen_16.sp),
+          style: PrimaryFont.medium(Sizes.dimen_16),
         ),
       ),
     );
