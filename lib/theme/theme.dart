@@ -6,6 +6,9 @@ const kColorLightGrey = Color(0xFFADADAD);
 const kColorGreyShadow = Color(0x62ADADAD);
 const kColorLightGray = Color(0xFFF5F5F5);
 const kColorGrayIcon = Color(0xFF666666);
+const Color kColorVulcan = Color(0xFF141221);
+const Color kColorRoyalBlue = Color(0xFF604FEF);
+const Color kColorViolet = Color(0xFFA74DBC);
 
 class PrimaryFont {
   static const String fontFamily = "SanFrancisco";
