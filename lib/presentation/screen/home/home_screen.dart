@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app_flutter/presentation/bloc/movie_tabbed/movie_tabbed_cubit.dart';
+import 'package:movie_app_flutter/presentation/screen/drawer/navigation_drawer_widget.dart';
 import 'package:movie_app_flutter/presentation/screen/home/movie_carousel/movie_carousel_widget.dart';
 import 'package:movie_app_flutter/presentation/screen/home/movie_tabbed/movie_tabbed_widget.dart';
 import 'package:movie_app_flutter/presentation/widgets/app_error_widget.dart';
@@ -47,6 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
         BlocProvider(create: (context) => _movieTabbedCubit),
       ],
       child: Scaffold(
+        drawer: const NavigationDrawerWidget(),
         body: BlocBuilder<MovieCarouselCubit, MovieCarouselState>(
           builder: (BuildContext context, MovieCarouselState state) {
             if (state is MovieCarouselLoaded) {

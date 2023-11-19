@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../presentation/app_localizations.dart';
+
 extension StringX on String? {
   String value(){
     return this?? "";
@@ -9,6 +11,11 @@ extension StringX on String? {
   String intelliTrim(int length) {
     if(this == null) return "";
     return this!.length > length ? '${this!.substring(0, length)}...' : this!;
+  }
+
+  String translator(BuildContext context) {
+    if(this == null) return "";
+    return AppLocalizations.of(context)?.translate(this!) ?? '';
   }
 }
 

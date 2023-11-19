@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app_flutter/common/constants/languages.dart';
 import 'package:movie_app_flutter/common/extensions/size_extensions.dart';
+import 'package:movie_app_flutter/common/utils/extensions.dart';
 import 'package:movie_app_flutter/presentation/bloc/movie_tabbed/movie_tabbed_cubit.dart';
 import 'package:movie_app_flutter/presentation/bloc/movie_tabbed/movie_tabbed_state.dart';
 import 'package:movie_app_flutter/presentation/screen/home/movie_tabbed/movie_list_card_widget.dart';
 import 'package:movie_app_flutter/presentation/widgets/app_error_widget.dart';
 import 'package:movie_app_flutter/theme/theme.dart';
-
 import '../../../../common/constants/size_constants.dart';
 import '../../loading/loading_circle.dart';
 
@@ -19,23 +20,11 @@ class MovieTabbedWidget extends StatefulWidget {
 
 class _MovieTabbedWidgetState extends State<MovieTabbedWidget>
     with SingleTickerProviderStateMixin {
-  final List<Widget> _tabs = [
-    Tab(
-      height: Sizes.dimen_10.h,
-      child: Text("POPULAR", style: PrimaryFont.medium(Sizes.dimen_16.sp)),
-    ),
-    Tab(
-        height: Sizes.dimen_10.h,
-        child: Text("NOW", style: PrimaryFont.medium(Sizes.dimen_16.sp))),
-    Tab(
-        height: Sizes.dimen_10.h,
-        child: Text("SOON", style: PrimaryFont.medium(Sizes.dimen_16.sp))),
-  ];
   late TabController _tabController;
 
   @override
   void initState() {
-    _tabController = TabController(length: _tabs.length, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
     super.initState();
   }
 
@@ -46,10 +35,27 @@ class _MovieTabbedWidgetState extends State<MovieTabbedWidget>
         TabBar(
           isScrollable: true,
           indicatorWeight: 3.0,
-          tabs: _tabs,
+          tabs: [
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: Sizes.dimen_3.h),
+              child: Text(Languages.popular.translator(context),
+                  style: PrimaryFont.medium(Sizes.dimen_16.sp)
+                      .copyWith(color: Colors.white)),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: Sizes.dimen_3.h),
+              child: Text(Languages.now.translator(context),
+                  style: PrimaryFont.medium(Sizes.dimen_16.sp)
+                      .copyWith(color: Colors.white)),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: Sizes.dimen_3.h),
+              child: Text(Languages.soon.translator(context),
+                  style: PrimaryFont.medium(Sizes.dimen_16.sp)
+                      .copyWith(color: Colors.white)),
+            )
+          ],
           controller: _tabController,
-          labelColor: Colors.white,
-          unselectedLabelColor: Colors.white,
           indicatorColor: kColorRoyalBlue,
           indicatorSize: TabBarIndicatorSize.tab,
           onTap: (index) =>

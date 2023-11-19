@@ -22,7 +22,7 @@ class AppbarWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           IconButton(
-            onPressed: () => {},
+            onPressed: () => {Scaffold.of(context).openDrawer()},
             icon: SvgPicture.asset(IconsConstant.menu),
           ),
           Text("MOVIE",

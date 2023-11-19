@@ -15,10 +15,10 @@ class MovieTitleCarouselWidget extends StatelessWidget {
       builder: (BuildContext context, MovieEntity? state) {
         return Container(
           alignment: Alignment.center,
-          padding: EdgeInsets.only(left: Sizes.dimen_20.w, right: Sizes.dimen_20.w),
+          padding: EdgeInsets.only(top: Sizes.dimen_4.h, left: Sizes.dimen_20.w, right: Sizes.dimen_20.w),
           child: Text(
             state!.title,
-            style: PrimaryFont.semiBold(Sizes.dimen_16.sp)
+            style: PrimaryFont.semiBold(Sizes.dimen_18.sp)
                 .copyWith(color: Colors.white),
             maxLines: 1,
             textAlign: TextAlign.center,
