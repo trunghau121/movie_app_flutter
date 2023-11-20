@@ -35,4 +35,5 @@ class Languages {
   static const String enterTMDbUsername = 'enterTMDbUsername';
   static const String enterPassword = 'enterPassword';
   static const String guestSignIn = 'guestSignIn';
+  static const String minutes = 'minutes';
 }

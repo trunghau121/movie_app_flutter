@@ -30,7 +30,7 @@ final getItInstance = GetIt.I;
 Future init() async {
   getItInstance.registerLazySingleton<RemoteClient>(() => RemoteClient());
   getItInstance.registerLazySingleton<MovieRemoteDataSource>(
-    () => MovieRemoteDataSourceImpl(getItInstance()),
+    () => MovieRemoteDataSourceImpl(getItInstance(), getItInstance()),
   );
   getItInstance.registerLazySingleton<MovieRepository>(
     () => MovieRepositoryImpl(getItInstance()),

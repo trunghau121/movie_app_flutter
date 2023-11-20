@@ -5,7 +5,7 @@ class MovieDetailModel extends MovieDetailEntity {
   final String backdropPath;
   final BelongsToCollection? belongsToCollection;
   final int budget;
-  final List<Genres> genres;
+  final List<Genres>? genres;
   final String homepage;
   final int id;
   final String imdbId;
@@ -51,6 +51,7 @@ class MovieDetailModel extends MovieDetailEntity {
           id: id,
           title: title,
           releaseDate: releaseDate,
+          duration: runtime,
           overview: overview,
           voteAverage: voteAverage,
           backdropPath: backdropPath,
@@ -94,7 +95,7 @@ class MovieDetailModel extends MovieDetailEntity {
       data['belongs_to_collection'] = belongsToCollection!.toJson();
     }
     data['budget'] = budget;
-    data['genres'] = genres.map((v) => v.toJson()).toList();
+    data['genres'] = genres?.map((v) => v.toJson()).toList();
     data['homepage'] = homepage;
     data['id'] = id;
     data['imdb_id'] = imdbId;

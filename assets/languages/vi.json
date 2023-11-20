@@ -26,5 +26,6 @@
     "sessionDenied": "Kết nối bị từ chối",
     "enterTMDbUsername": "Nhập tên đăng nhập của TMDb...",
     "enterPassword": "Nhập mật khẩu...",
-    "guestSignIn": "Khách đăng nhập"
+    "guestSignIn": "Khách đăng nhập",
+    "minutes": "Phút"
 }

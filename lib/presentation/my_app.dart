@@ -35,6 +35,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void dispose() {
     _languageCubit.close();
+    _themeCubit.close();
     super.dispose();
   }
 
