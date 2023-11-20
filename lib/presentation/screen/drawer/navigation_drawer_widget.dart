@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app_flutter/common/constants/image_constant.dart';
 import 'package:movie_app_flutter/common/constants/languages.dart';
 import 'package:movie_app_flutter/common/constants/size_constants.dart';
 import 'package:movie_app_flutter/common/utils/extensions.dart';
@@ -7,6 +8,9 @@ import 'package:movie_app_flutter/presentation/bloc/language/language_cubit.dart
 import 'package:movie_app_flutter/presentation/screen/drawer/navigation_expand_list_item.dart';
 import 'package:movie_app_flutter/presentation/screen/drawer/navigation_list_item.dart';
 import 'package:movie_app_flutter/theme/theme.dart';
+import 'package:wiredash/wiredash.dart';
+
+import '../../widgets/app_dialog.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
   const NavigationDrawerWidget({super.key});
@@ -59,15 +63,32 @@ class NavigationDrawerWidget extends StatelessWidget {
               title: Languages.feedback.translator(context),
               onPressed: () {
                 Scaffold.of(context).closeDrawer();
+                Wiredash.of(context).show();
               },
             ),
             NavigationListItem(
               title: Languages.about.translator(context),
               onPressed: () {
                 Scaffold.of(context).closeDrawer();
+                _showDialog(context);
               },
             )
           ],
+        ),
+      ),
+    );
+  }
+
+  void _showDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AppDialog(
+        title: Languages.about,
+        description: Languages.aboutDescription,
+        buttonText: Languages.okay,
+        image: Image.asset(
+          ImageConstant.tmdbLogo,
+          height: Sizes.dimen_48,
         ),
       ),
     );

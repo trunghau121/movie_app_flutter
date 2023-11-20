@@ -6,7 +6,7 @@ import 'package:movie_app_flutter/domain/usecases/usecase.dart';
 class GetLanguage extends UseCase<String, NoParams>{
   final AppRepository appRepository;
 
-  GetLanguage({required this.appRepository});
+  GetLanguage(this.appRepository);
   @override
   Future<Result<String>> call(NoParams params) {
     return appRepository.getPreferredLanguage();

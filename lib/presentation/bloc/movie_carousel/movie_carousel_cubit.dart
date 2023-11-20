@@ -20,7 +20,7 @@ class MovieCarouselCubit extends Cubit<MovieCarouselState> {
     required this.loadingCubit,
   }) : super(MovieCarouselInitial());
 
-  void loadCarousel({int defaultIndex = 0}) async {
+  Future<void> loadCarousel({int defaultIndex = 0}) async {
     emit(MovieCarouselLoading());
     (await getTrending(NoParams())).when(
       success: (data) async {

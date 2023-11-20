@@ -1,7 +1,6 @@
 import 'dart:ui';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app_flutter/domain/entities/update_language_params.dart';
 import 'package:movie_app_flutter/domain/usecases/get_language.dart';
 import '../../../common/constants/languages.dart';
 import '../../../domain/entities/language_entity.dart';
@@ -19,7 +18,7 @@ class LanguageCubit extends Cubit<Locale> {
   }) : super(Locale(Languages.languages[0].code));
 
   Future<void> toggleLanguage(LanguageEntity language) async {
-    await updateLanguage(UpdateLanguageParams(code: language.code));
+    await updateLanguage(language.code);
     loadPreferredLanguage();
   }
 

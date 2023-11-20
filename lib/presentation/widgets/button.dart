@@ -16,28 +16,23 @@ class Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 200),
-      curve: Curves.easeIn,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: isEnabled
-              ? [kColorVulcan, kColorViolet]
-              : [Colors.grey, Colors.grey],
-        ),
-        borderRadius: const BorderRadius.all(
+    return Container(
+      decoration: const BoxDecoration(
+        color: kColorViolet,
+        borderRadius: BorderRadius.all(
           Radius.circular(Sizes.dimen_20),
         ),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: Sizes.dimen_16),
       margin: const EdgeInsets.symmetric(vertical: Sizes.dimen_10),
-      height: Sizes.dimen_16,
-      child: TextButton(
+      child: InkWell(
         key: const ValueKey('main_button'),
-        onPressed: isEnabled ? onPressed : null,
-        child: Text(
-          text,
-          style: PrimaryFont.medium(Sizes.dimen_16),
+        onTap: isEnabled ? onPressed : null,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: Sizes.dimen_10, horizontal: Sizes.dimen_24),
+          child: Text(
+            text,
+            style: PrimaryFont.medium(Sizes.dimen_14).copyWith(color: Colors.white),
+          ),
         ),
       ),
     );

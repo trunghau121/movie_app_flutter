@@ -1,5 +1,6 @@
 import 'package:movie_app_flutter/common/result.dart';
 import 'package:movie_app_flutter/data/data_sources/movie_remote_data_resource.dart';
+import 'package:movie_app_flutter/data/models/movie_detail_model.dart';
 import 'package:movie_app_flutter/data/models/movies_result_model.dart';
 import 'package:movie_app_flutter/domain/repositories/movie_repository.dart';
 
@@ -31,6 +32,11 @@ class MovieRepositoryImpl extends MovieRepository{
   @override
   Future<Result<MoviesResultModel>> getSearchedMovies(String searchTerm) async{
     return remoteDataSource.getSearchedMovies(searchTerm);
+  }
+
+  @override
+  Future<Result<MovieDetailModel>> getDetailMovie(int movieId) {
+    return remoteDataSource.getDetailMovie(movieId);
   }
 
 }

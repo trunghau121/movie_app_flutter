@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import '../di/get_it.dart' as getIt;
-import 'my_app.dart';
+import 'presentation/my_app.dart';
 import 'dart:io' show Platform;
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:flutter/services.dart';

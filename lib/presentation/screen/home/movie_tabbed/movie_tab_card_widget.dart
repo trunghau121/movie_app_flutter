@@ -4,6 +4,7 @@ import 'package:movie_app_flutter/common/screenutil/screenutil.dart';
 import 'package:movie_app_flutter/common/utils/extensions.dart';
 import 'package:movie_app_flutter/domain/entities/movie_entity.dart';
 import 'package:movie_app_flutter/theme/theme.dart';
+import '../../../../common/utils/navigation_util.dart';
 import '../../../../data/remote/endpoints.dart';
 
 class MovieTabCardWidget extends StatelessWidget {
@@ -14,7 +15,9 @@ class MovieTabCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => {},
+      onTap: () => {
+        NavigationUtil.gotoDetail(context, movie.id)
+      },
       child: SizedBox(
         width: ScreenUtil.screenWidth / 2.7,
         child: Column(
