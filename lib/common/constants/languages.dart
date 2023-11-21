@@ -36,4 +36,6 @@ class Languages {
   static const String enterPassword = 'enterPassword';
   static const String guestSignIn = 'guestSignIn';
   static const String minutes = 'minutes';
+  static const String showmore = 'showmore';
+  static const String showless = 'showless';
 }

@@ -1,12 +1,14 @@
+import 'package:movie_app_flutter/domain/entities/cast_entity.dart';
 import '../../common/result.dart';
-import '../../data/models/movie_detail_model.dart';
-import '../../data/models/movies_result_model.dart';
+import '../entities/movie_detail_entity.dart';
+import '../entities/movies_result_entity.dart';
 
 abstract class MovieRepository{
-  Future<Result<MoviesResultModel>> getTrending();
-  Future<Result<MoviesResultModel>> getPopular();
-  Future<Result<MoviesResultModel>> getPlayingNow();
-  Future<Result<MoviesResultModel>> getComingSoon();
-  Future<Result<MovieDetailModel>> getDetailMovie(int movieId);
-  Future<Result<MoviesResultModel>> getSearchedMovies(String searchTerm);
+  Future<Result<MoviesResultEntity>> getTrending();
+  Future<Result<MoviesResultEntity>> getPopular();
+  Future<Result<MoviesResultEntity>> getPlayingNow();
+  Future<Result<MoviesResultEntity>> getComingSoon();
+  Future<Result<MovieDetailEntity>> getDetailMovie(int movieId);
+  Future<Result<List<CastEntity>>> getCastCrew(int movieId);
+  Future<Result<MoviesResultEntity>> getSearchedMovies(String searchTerm);
 }

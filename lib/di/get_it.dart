@@ -6,6 +6,7 @@ import 'package:movie_app_flutter/data/repositories/app_repository_impl.dart';
 import 'package:movie_app_flutter/data/repositories/movie_repository_impl.dart';
 import 'package:movie_app_flutter/domain/repositories/app_repository.dart';
 import 'package:movie_app_flutter/domain/repositories/movie_repository.dart';
+import 'package:movie_app_flutter/domain/usecases/get_cast_crew.dart';
 import 'package:movie_app_flutter/domain/usecases/get_coming_soon.dart';
 import 'package:movie_app_flutter/domain/usecases/get_language.dart';
 import 'package:movie_app_flutter/domain/usecases/get_movie_detail.dart';
@@ -23,6 +24,7 @@ import 'package:movie_app_flutter/presentation/bloc/movie_carousel/movie_carouse
 import 'package:movie_app_flutter/presentation/bloc/movie_detail/movie_detail_cubit.dart';
 import 'package:movie_app_flutter/presentation/bloc/theme/theme_cubit.dart';
 
+import '../presentation/bloc/cast_crew/cast_crew_cubit.dart';
 import '../presentation/bloc/movie_tabbed/movie_tabbed_cubit.dart';
 
 final getItInstance = GetIt.I;
@@ -53,6 +55,7 @@ Future init() async {
   getItInstance.registerLazySingleton(() => GetMovieDetail(getItInstance()));
   getItInstance.registerLazySingleton(() => GetTheme(getItInstance()));
   getItInstance.registerLazySingleton(() => UpdateTheme(getItInstance()));
+  getItInstance.registerLazySingleton(() => GetCastCrew(getItInstance()));
 
   // Bloc
   getItInstance.registerFactory(() => MovieBackdropCubit());
@@ -80,5 +83,6 @@ Future init() async {
     updateTheme: getItInstance(),
   ));
 
-  getItInstance.registerFactory(() => MovieDetailCubit(getItInstance()));
+  getItInstance.registerFactory(() => CastCrewCubit(getItInstance()));
+  getItInstance.registerFactory(() => MovieDetailCubit(getItInstance(), getItInstance()));
 }

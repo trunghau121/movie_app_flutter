@@ -1,24 +1,38 @@
 import 'package:movie_app_flutter/common/typedefs.dart';
+import 'package:movie_app_flutter/common/utils/extensions.dart';
 import 'package:movie_app_flutter/data/models/movie_model.dart';
+import '../../domain/entities/movies_result_entity.dart';
 
-class MoviesResultModel{
+class MoviesResultModel extends MoviesResultEntity {
   int? page;
   List<MovieModel>? results;
   int? totalPages;
   int? totalResults;
 
-  MoviesResultModel({this.page, this.results, this.totalPages, this.totalResults});
+  MoviesResultModel({
+    this.page,
+    this.results,
+    this.totalPages,
+    this.totalResults,
+  }) : super(
+          currentPage: page.value(),
+          data: results ?? [],
+          totalCountPages: totalPages.value(),
+        );
 
-  MoviesResultModel.fromJson(Map<String, dynamic> json) {
-    page = json['page'];
+  factory MoviesResultModel.fromJson(Map<String, dynamic> json) {
+    var data = <MovieModel>[];
     if (json['results'] != null) {
-      results = <MovieModel>[];
       json['results'].forEach((v) {
-        results!.add(MovieModel.fromJson(v));
+        data.add(MovieModel.fromJson(v));
       });
     }
-    totalPages = json['total_pages'];
-    totalResults = json['total_results'];
+    return MoviesResultModel(
+      page: json['page'],
+      results: data,
+      totalPages: json['total_pages'],
+      totalResults: json['total_results'],
+    );
   }
 
   JSON toJson() {

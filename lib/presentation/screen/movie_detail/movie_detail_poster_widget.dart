@@ -4,6 +4,7 @@ import 'package:movie_app_flutter/common/screenutil/screenutil.dart';
 import 'package:movie_app_flutter/domain/entities/movie_detail_entity.dart';
 import 'package:movie_app_flutter/theme/theme.dart';
 import '../../../data/remote/endpoints.dart';
+import 'review_button_widget.dart';
 
 class MovieDetailPosterWidget extends StatelessWidget {
   final MovieDetailEntity movieDetailEntity;
@@ -20,7 +21,7 @@ class MovieDetailPosterWidget extends StatelessWidget {
               bottomLeft: Radius.circular(Sizes.dimen_16),
               bottomRight: Radius.circular(Sizes.dimen_16)),
           child: Image.network(
-            "${Endpoints.baseUrlImage}${movieDetailEntity.backdropPath}",
+            "${Endpoints.urlOriginalImage}${movieDetailEntity.backdropPath}",
             fit: BoxFit.cover,
             width: ScreenUtil.screenWidth,
             height: ScreenUtil.screenHeight / 2.7,
@@ -50,9 +51,9 @@ class MovieDetailPosterWidget extends StatelessWidget {
           ),
         ),
         Positioned(
-          left: ScreenUtil.screenWidth - (ScreenUtil.screenWidth -
-              getHeightChild() -
-              Sizes.dimen_16) + Sizes.dimen_10,
+          left: ScreenUtil.screenWidth -
+              (ScreenUtil.screenWidth - getHeightChild() - Sizes.dimen_16) +
+              Sizes.dimen_10,
           right: Sizes.dimen_10,
           top: (ScreenUtil.screenHeight / 2.7) + Sizes.dimen_10,
           child: Text(
@@ -64,32 +65,13 @@ class MovieDetailPosterWidget extends StatelessWidget {
         Positioned(
           right: Sizes.dimen_10,
           bottom: Sizes.dimen_10,
-          child: Container(
-            padding: const EdgeInsets.symmetric(
-                vertical: Sizes.dimen_4, horizontal: Sizes.dimen_10),
-            decoration: const BoxDecoration(
-              color: kColorViolet,
-              borderRadius: BorderRadius.all(Radius.circular(Sizes.dimen_16)),
-            ),
-            child: Row(
-              children: [
-                const Icon(Icons.star,
-                    size: Sizes.dimen_18, color: Colors.white),
-                const SizedBox(width: Sizes.dimen_4),
-                Text(
-                  movieDetailEntity.voteAverage.toString(),
-                  style: PrimaryFont.medium(Sizes.dimen_14)
-                      .copyWith(color: Colors.white),
-                ),
-              ],
-            ),
-          ),
+          child: ReviewButtonWidget(movieDetailEntity.voteAverage.toString()),
         ),
       ],
     );
   }
-  
-  double getHeightChild(){
+
+  double getHeightChild() {
     return (ScreenUtil.screenWidth / 3.5);
   }
 }

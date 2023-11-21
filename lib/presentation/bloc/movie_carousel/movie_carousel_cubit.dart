@@ -24,7 +24,7 @@ class MovieCarouselCubit extends Cubit<MovieCarouselState> {
     emit(MovieCarouselLoading());
     (await getTrending(NoParams())).when(
       success: (data) async {
-        var movies = data!.results!;
+        var movies = data!.data;
         movieBackdropCubit.backdropChanged(movies[defaultIndex]);
         return emit(
           MovieCarouselLoaded(

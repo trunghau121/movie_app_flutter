@@ -27,5 +27,7 @@
     "enterTMDbUsername": "Nhập tên đăng nhập của TMDb...",
     "enterPassword": "Nhập mật khẩu...",
     "guestSignIn": "Khách đăng nhập",
-    "minutes": "Phút"
+    "minutes": "Phút",
+    "showmore": "Xem thêm",
+    "showless": "Ẩn bớt"
 }

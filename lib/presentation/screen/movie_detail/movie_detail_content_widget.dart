@@ -3,12 +3,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:movie_app_flutter/common/constants/icons_constant.dart';
 import 'package:movie_app_flutter/common/constants/languages.dart';
 import 'package:movie_app_flutter/common/utils/extensions.dart';
+import 'package:readmore/readmore.dart';
 import '../../../common/constants/size_constants.dart';
 import '../../../domain/entities/movie_detail_entity.dart';
 import '../../../theme/theme.dart';
 
 class MovieDetailContentWidget extends StatelessWidget {
   final MovieDetailEntity movieDetailEntity;
+
   const MovieDetailContentWidget(this.movieDetailEntity, {super.key});
 
   @override
@@ -52,9 +54,19 @@ class MovieDetailContentWidget extends StatelessWidget {
         const SizedBox(height: Sizes.dimen_10),
         Padding(
           padding: const EdgeInsets.all(Sizes.dimen_12),
-          child: Text(
+          child: ReadMoreText(
             movieDetailEntity.overview,
-            style: PrimaryFont.medium(Sizes.dimen_16).copyWith(color: Colors.grey),
+            trimLines: 3,
+            colorClickableText: Colors.grey,
+            trimExpandedText: '  ${Languages.showless.translator(context)}',
+            trimCollapsedText: Languages.showmore.translator(context),
+            style:
+                PrimaryFont.light(Sizes.dimen_16).copyWith(color: Colors.grey),
+            trimMode: TrimMode.Line,
+            moreStyle:
+                PrimaryFont.medium(Sizes.dimen_16).copyWith(color: Colors.grey),
+            lessStyle:
+                PrimaryFont.medium(Sizes.dimen_16).copyWith(color: Colors.grey),
           ),
         )
       ],

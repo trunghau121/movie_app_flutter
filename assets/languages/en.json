@@ -27,5 +27,7 @@
     "enterTMDbUsername": "Enter TMDb username here...",
     "enterPassword": "Enter password here...",
     "guestSignIn": "Guest Sign In",
-    "minutes": "Minutes"
+    "minutes": "Minutes",
+    "showmore": "Show more",
+    "showless": "Show less"
 }
