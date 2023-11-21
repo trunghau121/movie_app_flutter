@@ -3,6 +3,8 @@ import 'package:movie_app_flutter/data/data_sources/movie_remote_data_resource.d
 import 'package:movie_app_flutter/data/models/cast_result_model.dart';
 import 'package:movie_app_flutter/data/models/movie_detail_model.dart';
 import 'package:movie_app_flutter/data/models/movies_result_model.dart';
+import 'package:movie_app_flutter/data/models/video_model.dart';
+import 'package:movie_app_flutter/data/models/video_result_model.dart';
 import 'package:movie_app_flutter/domain/entities/cast_entity.dart';
 import 'package:movie_app_flutter/domain/repositories/movie_repository.dart';
 
@@ -49,6 +51,17 @@ class MovieRepositoryImpl extends MovieRepository{
     }else{
       var error = (response as Error<CastResultModel>);
       return Error<List<CastEntity>>(error.contentError, error.exceptionType);
+    }
+  }
+
+  @override
+  Future<Result<List<VideoModel>>> getVideos(int movieId) async{
+    var response = await remoteDataSource.getVideos(movieId);
+    if(response is Success<VideoResultModel>){
+      return Success(response.data!.results?? []);
+    }else{
+      var error = (response as Error<VideoResultModel>);
+      return Error<List<VideoModel>>(error.contentError, error.exceptionType);
     }
   }
 

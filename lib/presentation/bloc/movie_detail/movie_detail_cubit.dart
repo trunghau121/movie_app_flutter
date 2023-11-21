@@ -1,13 +1,15 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app_flutter/domain/entities/movie_detail_params.dart';
 import 'package:movie_app_flutter/presentation/bloc/movie_detail/movie_detail_state.dart';
+import 'package:movie_app_flutter/presentation/bloc/video/video_cubit.dart';
 import '../../../domain/usecases/get_movie_detail.dart';
 import '../cast_crew/cast_crew_cubit.dart';
 
 class MovieDetailCubit extends Cubit<MovieDetailState>{
   final GetMovieDetail getMovieDetail;
   final CastCrewCubit castCrewCubit;
-  MovieDetailCubit(this.getMovieDetail, this.castCrewCubit): super(MovieDetailInit());
+  final VideoCubit videoCubit;
+  MovieDetailCubit(this.getMovieDetail, this.castCrewCubit, this.videoCubit): super(MovieDetailInit());
 
   Future<void> loadMovieDetail(int movieId) async{
     emit(MovieDetailLoading());
@@ -20,6 +22,7 @@ class MovieDetailCubit extends Cubit<MovieDetailState>{
       },
     );
     castCrewCubit.loadCastCrew(movieId);
+    videoCubit.loadVideos(movieId);
   }
 
 }

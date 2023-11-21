@@ -7,7 +7,8 @@ class AppbarDetailMovieWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      elevation: 5,
+      elevation: 0,
+      backgroundColor: Colors.transparent,
       leading: GestureDetector(
         onTap: () {
           Navigator.of(context).pop();

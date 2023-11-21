@@ -3,4 +3,5 @@ class IconsConstant{
   static const String menu = "${_subPath}menu.svg";
   static const String time = "${_subPath}icon_time.svg";
   static const String date = "${_subPath}icon_date.svg";
+  static const String iconPlay = "${_subPath}icon_play.svg";
 }

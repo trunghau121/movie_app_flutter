@@ -14,6 +14,7 @@ import 'package:movie_app_flutter/domain/usecases/get_playing_now.dart';
 import 'package:movie_app_flutter/domain/usecases/get_popular.dart';
 import 'package:movie_app_flutter/domain/usecases/get_theme.dart';
 import 'package:movie_app_flutter/domain/usecases/get_trending.dart';
+import 'package:movie_app_flutter/domain/usecases/get_video.dart';
 import 'package:movie_app_flutter/domain/usecases/movie_search.dart';
 import 'package:movie_app_flutter/domain/usecases/update_language.dart';
 import 'package:movie_app_flutter/domain/usecases/update_theme.dart';
@@ -23,9 +24,9 @@ import 'package:movie_app_flutter/presentation/bloc/movie_backdrop/movie_backdro
 import 'package:movie_app_flutter/presentation/bloc/movie_carousel/movie_carousel_cubit.dart';
 import 'package:movie_app_flutter/presentation/bloc/movie_detail/movie_detail_cubit.dart';
 import 'package:movie_app_flutter/presentation/bloc/theme/theme_cubit.dart';
-
 import '../presentation/bloc/cast_crew/cast_crew_cubit.dart';
 import '../presentation/bloc/movie_tabbed/movie_tabbed_cubit.dart';
+import '../presentation/bloc/video/video_cubit.dart';
 
 final getItInstance = GetIt.I;
 
@@ -56,6 +57,7 @@ Future init() async {
   getItInstance.registerLazySingleton(() => GetTheme(getItInstance()));
   getItInstance.registerLazySingleton(() => UpdateTheme(getItInstance()));
   getItInstance.registerLazySingleton(() => GetCastCrew(getItInstance()));
+  getItInstance.registerLazySingleton(() => GetVideo(getItInstance()));
 
   // Bloc
   getItInstance.registerFactory(() => MovieBackdropCubit());
@@ -79,10 +81,15 @@ Future init() async {
       ));
 
   getItInstance.registerFactory(() => ThemeCubit(
-    getTheme: getItInstance(),
-    updateTheme: getItInstance(),
-  ));
+        getTheme: getItInstance(),
+        updateTheme: getItInstance(),
+      ));
 
+  getItInstance.registerFactory(() => VideoCubit(getItInstance()));
   getItInstance.registerFactory(() => CastCrewCubit(getItInstance()));
-  getItInstance.registerFactory(() => MovieDetailCubit(getItInstance(), getItInstance()));
+  getItInstance.registerFactory(() => MovieDetailCubit(
+        getItInstance(),
+        getItInstance(),
+        getItInstance(),
+      ));
 }

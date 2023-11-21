@@ -37,8 +37,8 @@ class CastCrewWidget extends StatelessWidget {
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 130,
                   childAspectRatio: 1 / 3,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 0,
+                  mainAxisSpacing: 0,
                 ),
                 itemBuilder: (BuildContext context, int index) {
                   return ItemCastWidget(state.data[index]);

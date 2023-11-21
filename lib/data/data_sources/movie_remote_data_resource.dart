@@ -1,6 +1,7 @@
 import 'package:movie_app_flutter/common/typedefs.dart';
 import 'package:movie_app_flutter/data/models/cast_result_model.dart';
 import 'package:movie_app_flutter/data/models/movie_detail_model.dart';
+import 'package:movie_app_flutter/data/models/video_result_model.dart';
 import '../../common/result.dart';
 import '../remote/base_repository.dart';
 import '../remote/remote_client.dart';
@@ -15,6 +16,7 @@ abstract class MovieRemoteDataSource extends BaseRepository {
   Future<Result<MovieDetailModel>> getDetailMovie(int movieId);
   Future<Result<CastResultModel>> getCastCrew(int movieId);
   Future<Result<MoviesResultModel>> getSearchedMovies(String searchTerm);
+  Future<Result<VideoResultModel>> getVideos(int movieId);
 }
 
 class MovieRemoteDataSourceImpl extends MovieRemoteDataSource {
@@ -105,6 +107,14 @@ class MovieRemoteDataSourceImpl extends MovieRemoteDataSource {
     return getResultApi(
           () => _client.get('/movie/$movieId/credits', params, null),
           (JSON json) => CastResultModel.fromJson(json),
+    );
+  }
+
+  @override
+  Future<Result<VideoResultModel>> getVideos(int movieId) {
+    return getResultApi(
+          () => _client.get('/movie/$movieId/videos', null, null),
+          (JSON json) => VideoResultModel.fromJson(json),
     );
   }
 }

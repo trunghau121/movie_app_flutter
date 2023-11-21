@@ -21,14 +21,14 @@ class ItemCastWidget extends StatelessWidget {
               height: Sizes.dimen_48,
               padding: const EdgeInsets.only(
                 top: Sizes.dimen_4,
-                left: Sizes.dimen_32,
+                left: Sizes.dimen_45,
                 right: Sizes.dimen_8,
                 bottom: Sizes.dimen_4,
               ),
               decoration: const BoxDecoration(
                 color: Colors.black,
-                boxShadow: [BoxShadow(color: Colors.grey, spreadRadius: 1)],
-                borderRadius: BorderRadius.all(Radius.circular(Sizes.dimen_16)),
+                boxShadow: [BoxShadow(color: kColorViolet, spreadRadius: 1)],
+                borderRadius: BorderRadius.all(Radius.circular(Sizes.dimen_26)),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -61,9 +61,10 @@ class ItemCastWidget extends StatelessWidget {
         Container(
           width: Sizes.dimen_60,
           height: Sizes.dimen_60,
-          padding: const EdgeInsets.all(Sizes.dimen_1),
+          padding: const EdgeInsets.all(Sizes.dimen_2),
+          margin: const EdgeInsets.only(left: Sizes.dimen_10),
           decoration: const BoxDecoration(
-            color: Colors.grey,
+            color: kColorViolet,
             borderRadius: BorderRadius.all(Radius.circular(Sizes.dimen_100)),
           ),
           child: ClipRRect(

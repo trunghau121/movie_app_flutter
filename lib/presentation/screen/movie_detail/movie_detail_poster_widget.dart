@@ -5,6 +5,7 @@ import 'package:movie_app_flutter/domain/entities/movie_detail_entity.dart';
 import 'package:movie_app_flutter/theme/theme.dart';
 import '../../../data/remote/endpoints.dart';
 import 'review_button_widget.dart';
+import 'watch_videos_button.dart';
 
 class MovieDetailPosterWidget extends StatelessWidget {
   final MovieDetailEntity movieDetailEntity;
@@ -24,7 +25,7 @@ class MovieDetailPosterWidget extends StatelessWidget {
             "${Endpoints.urlOriginalImage}${movieDetailEntity.backdropPath}",
             fit: BoxFit.cover,
             width: ScreenUtil.screenWidth,
-            height: ScreenUtil.screenHeight / 2.7,
+            height: ScreenUtil.screenHeight / 2,
           ),
         ),
         Positioned(
@@ -55,7 +56,7 @@ class MovieDetailPosterWidget extends StatelessWidget {
               (ScreenUtil.screenWidth - getHeightChild() - Sizes.dimen_16) +
               Sizes.dimen_10,
           right: Sizes.dimen_10,
-          top: (ScreenUtil.screenHeight / 2.7) + Sizes.dimen_10,
+          top: (ScreenUtil.screenHeight / 2) + Sizes.dimen_10,
           child: Text(
             movieDetailEntity.title,
             style: PrimaryFont.medium(Sizes.dimen_20)
@@ -66,6 +67,11 @@ class MovieDetailPosterWidget extends StatelessWidget {
           right: Sizes.dimen_10,
           bottom: Sizes.dimen_10,
           child: ReviewButtonWidget(movieDetailEntity.voteAverage.toString()),
+        ),
+        Positioned(
+          left: (ScreenUtil.screenWidth / 2) - Sizes.dimen_32,
+          top: ((ScreenUtil.screenHeight / 2) / 2) - Sizes.dimen_32,
+          child: WatchVideosButton(),
         ),
       ],
     );
