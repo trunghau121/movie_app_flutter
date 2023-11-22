@@ -1,6 +1,6 @@
 # movie_app_flutter
 
-Movie App develop with Flutter
+Movie App developed with Flutter
 
 ## Getting Started
 
