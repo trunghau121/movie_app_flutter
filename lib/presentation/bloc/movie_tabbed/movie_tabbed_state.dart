@@ -15,6 +15,8 @@ class MovieTabbedError extends MovieTabbedState {
   final String contentError;
   final DioExceptionType exceptionType;
   const MovieTabbedError(this.contentError, this.exceptionType);
+  @override
+  List<Object> get props => [contentError, exceptionType];
 }
 
 class MovieTabbedLoaded extends MovieTabbedState {

@@ -14,8 +14,10 @@ class MovieCarouselLoading extends MovieCarouselState {}
 class MovieCarouselError extends MovieCarouselState {
   final String contentError;
   final DioExceptionType exceptionType;
-
   const MovieCarouselError(this.contentError, this.exceptionType);
+
+  @override
+  List<Object> get props => [contentError, exceptionType];
 }
 
 class MovieCarouselLoaded extends MovieCarouselState {

@@ -11,9 +11,13 @@ class VideoLoading extends VideoState{}
 class VideoLoaded extends VideoState{
   final List<VideoEntity> videoEntities;
   VideoLoaded(this.videoEntities);
+  @override
+  List<Object> get props => [videoEntities];
 }
 class VideoError extends VideoState{
   final String message;
   final DioExceptionType type;
   VideoError(this.message, this.type);
+  @override
+  List<Object> get props => [message, type];
 }

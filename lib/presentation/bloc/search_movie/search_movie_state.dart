@@ -12,10 +12,14 @@ class SearchMovieLoading extends SearchMovieState{}
 class SearchMovieLoaded extends SearchMovieState{
   final List<MovieEntity> movieEntities;
   SearchMovieLoaded(this.movieEntities);
+  @override
+  List<Object> get props => [movieEntities];
 }
 
 class SearchMovieError extends SearchMovieState{
   final String message;
   final DioExceptionType type;
   SearchMovieError(this.message, this.type);
+  @override
+  List<Object> get props => [message, type];
 }
