@@ -60,20 +60,18 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
             if (state is MovieDetailLoaded) {
               return Stack(
                 children: [
-                  Expanded(
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          MovieDetailPosterWidget(state.movieDetail),
-                          SizedBox(
-                            height: (ScreenUtil.screenWidth / 3.5) / 2 +
-                                Sizes.dimen_60,
-                          ),
-                          MovieDetailContentWidget(state.movieDetail),
-                          const SizedBox(height: Sizes.dimen_10),
-                          const CastCrewWidget(),
-                        ],
-                      ),
+                  SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        MovieDetailPosterWidget(state.movieDetail),
+                        SizedBox(
+                          height: (ScreenUtil.screenWidth / 3.5) / 2 +
+                              Sizes.dimen_60,
+                        ),
+                        MovieDetailContentWidget(state.movieDetail),
+                        const SizedBox(height: Sizes.dimen_10),
+                        const CastCrewWidget(),
+                      ],
                     ),
                   ),
                   SizedBox(

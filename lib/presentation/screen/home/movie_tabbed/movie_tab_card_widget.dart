@@ -29,6 +29,9 @@ class MovieTabCardWidget extends StatelessWidget {
                 child: Image.network(
                   "${Endpoints.baseUrlImage}${movie.posterPath}",
                   fit: BoxFit.cover,
+                  errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                    return const SizedBox.shrink();
+                  },
                 ),
               ),
             ),

@@ -16,45 +16,43 @@ class ItemCastWidget extends StatelessWidget {
       children: [
         Container(
           margin: const EdgeInsets.only(top: Sizes.dimen_6, left: Sizes.dimen_35, right: Sizes.dimen_10),
-          child: Expanded(
-            child: Container(
-              height: Sizes.dimen_48,
-              padding: const EdgeInsets.only(
-                top: Sizes.dimen_4,
-                left: Sizes.dimen_45,
-                right: Sizes.dimen_8,
-                bottom: Sizes.dimen_4,
-              ),
-              decoration: const BoxDecoration(
-                color: Colors.black,
-                boxShadow: [BoxShadow(color: kColorViolet, spreadRadius: 1)],
-                borderRadius: BorderRadius.all(Radius.circular(Sizes.dimen_26)),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      castEntity.name,
-                      style: PrimaryFont.medium(Sizes.dimen_15)
-                          .copyWith(color: Colors.white),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
+          child: Container(
+            height: Sizes.dimen_48,
+            padding: const EdgeInsets.only(
+              top: Sizes.dimen_4,
+              left: Sizes.dimen_45,
+              right: Sizes.dimen_8,
+              bottom: Sizes.dimen_4,
+            ),
+            decoration: const BoxDecoration(
+              color: Colors.black,
+              boxShadow: [BoxShadow(color: kColorViolet, spreadRadius: 1)],
+              borderRadius: BorderRadius.all(Radius.circular(Sizes.dimen_26)),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    castEntity.name,
+                    style: PrimaryFont.medium(Sizes.dimen_15)
+                        .copyWith(color: Colors.white),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      castEntity.character,
-                      style: PrimaryFont.medium(Sizes.dimen_12)
-                          .copyWith(color: Colors.grey),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                ),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    castEntity.character,
+                    style: PrimaryFont.medium(Sizes.dimen_12)
+                        .copyWith(color: Colors.grey),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
@@ -73,6 +71,9 @@ class ItemCastWidget extends StatelessWidget {
             child: Image.network(
               "${Endpoints.baseUrlImage}${castEntity.profilePath}",
               fit: BoxFit.cover,
+              errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                return const SizedBox.shrink();
+              },
             ),
           ),
         ),

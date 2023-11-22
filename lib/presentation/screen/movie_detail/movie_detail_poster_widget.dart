@@ -26,6 +26,9 @@ class MovieDetailPosterWidget extends StatelessWidget {
             fit: BoxFit.cover,
             width: ScreenUtil.screenWidth,
             height: ScreenUtil.screenHeight / 2,
+            errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+              return const SizedBox.shrink();
+            },
           ),
         ),
         Positioned(
@@ -47,6 +50,9 @@ class MovieDetailPosterWidget extends StatelessWidget {
               child: Image.network(
                 "${Endpoints.baseUrlImage}${movieDetailEntity.posterPath}",
                 fit: BoxFit.cover,
+                errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                  return const SizedBox.shrink();
+                },
               ),
             ),
           ),

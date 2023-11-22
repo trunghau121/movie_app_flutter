@@ -89,6 +89,9 @@ class _WatchVideosScreenState extends State<WatchVideosScreen> {
                                     fit: BoxFit.cover,
                                     width: Sizes.dimen_80,
                                     height: Sizes.dimen_80,
+                                    errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                                      return const SizedBox.shrink();
+                                    },
                                   ),
                                 ),
                                 Expanded(

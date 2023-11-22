@@ -30,6 +30,9 @@ class MovieBackdropWidget extends StatelessWidget {
                   return Image.network(
                     "${Endpoints.baseUrlImage}${state?.backdropPath}",
                     fit: BoxFit.fitHeight,
+                    errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                      return const SizedBox.shrink();
+                    },
                   );
                 },
               ),

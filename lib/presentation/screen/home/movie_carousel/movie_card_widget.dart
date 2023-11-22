@@ -17,12 +17,16 @@ class MovieCardWidget extends StatelessWidget {
       elevation: 10,
       borderRadius: BorderRadius.circular(Sizes.dimen_16),
       child: GestureDetector(
-        onTap: () => {
-          NavigationUtil.gotoDetail(context, movieId)
-        },
+        onTap: () => {NavigationUtil.gotoDetail(context, movieId)},
         child: ClipRRect(
           borderRadius: BorderRadius.circular(Sizes.dimen_16),
-          child: Image.network("${Endpoints.baseUrlImage}$posterPath", fit: BoxFit.cover,),
+          child: Image.network(
+            "${Endpoints.baseUrlImage}$posterPath",
+            fit: BoxFit.cover,
+            errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+              return const SizedBox.shrink();
+            },
+          ),
         ),
       ),
     );

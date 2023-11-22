@@ -22,17 +22,22 @@ class SearchMovieCard extends StatelessWidget {
           vertical: Sizes.dimen_2,
         ),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(Sizes.dimen_8),
               child: SizedBox(
                 width: Sizes.dimen_100,
-                height: Sizes.dimen_150,
+                height: Sizes.dimen_100,
                 child: ClipRRect(
                   borderRadius: const BorderRadius.all(Radius.circular(Sizes.dimen_12)),
                   child: Image.network(
                     "${Endpoints.baseUrlImage}${movieEntity.posterPath}",
                     fit: BoxFit.cover,
+                    errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                      return const SizedBox.shrink();
+                    },
                   ),
                 ),
               ),
@@ -40,9 +45,10 @@ class SearchMovieCard extends StatelessWidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  const SizedBox(height: Sizes.dimen_12),
                   Text(
                     movieEntity.title,
                     maxLines: 2,

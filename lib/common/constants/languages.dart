@@ -38,4 +38,5 @@ class Languages {
   static const String minutes = 'minutes';
   static const String showmore = 'showmore';
   static const String showless = 'showless';
+  static const String enterSearch = 'enterSearch';
 }

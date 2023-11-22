@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app_flutter/common/constants/languages.dart';
 import 'package:movie_app_flutter/common/screenutil/screenutil.dart';
+import 'package:movie_app_flutter/common/utils/extensions.dart';
 import 'package:movie_app_flutter/presentation/bloc/search_movie/search_movie_cubit.dart';
 import '../../../common/constants/size_constants.dart';
 import '../../../theme/theme.dart';
@@ -62,7 +64,7 @@ class _SearchAppbarState extends State<SearchAppbar> {
                 });
               },
               controller: _controller,
-              style: PrimaryFont.semiBold(Sizes.dimen_18)
+              style: PrimaryFont.regular(Sizes.dimen_18)
                   .copyWith(color: Colors.white),
               textInputAction: TextInputAction.done,
               keyboardType: TextInputType.text,
@@ -75,7 +77,7 @@ class _SearchAppbarState extends State<SearchAppbar> {
                     borderRadius: BorderRadius.circular(Sizes.dimen_16),
                     borderSide: BorderSide.none,
                   ),
-                  hintText: "Nhập từ khóa tìm kiếm",
+                  hintText: Languages.enterSearch.translator(context),
                   contentPadding: const EdgeInsets.all(Sizes.dimen_10),
                   suffixIcon: _controller.text.isNotEmpty
                       ? IconButton(
@@ -85,7 +87,7 @@ class _SearchAppbarState extends State<SearchAppbar> {
                           icon: const Icon(Icons.cancel, color: Colors.grey),
                         )
                       : null,
-                  hintStyle: PrimaryFont.semiBold(Sizes.dimen_18)
+                  hintStyle: PrimaryFont.light(Sizes.dimen_18)
                       .copyWith(color: Colors.grey)),
             ),
           ),

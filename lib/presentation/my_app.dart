@@ -72,6 +72,7 @@ class _MyAppState extends State<MyApp> {
                       AppLocalizations.delegate,
                       GlobalMaterialLocalizations.delegate,
                       GlobalWidgetsLocalizations.delegate,
+                      GlobalCupertinoLocalizations.delegate,
                     ],
                     home: const HomeScreen(),
                     debugShowCheckedModeBanner: false,
