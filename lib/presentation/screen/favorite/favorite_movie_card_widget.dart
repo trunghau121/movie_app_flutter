@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app_flutter/common/screenutil/screenutil.dart';
@@ -31,8 +32,8 @@ class FavoriteMovieCardWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(Sizes.dimen_8),
           child: Stack(
             children: <Widget>[
-              Image.network(
-                '${Endpoints.baseUrlImage}${movie.posterPath}',
+              CachedNetworkImage(
+                imageUrl: '${Endpoints.baseUrlImage}${movie.posterPath}',
                 fit: BoxFit.cover,
                 width: ScreenUtil.screenWidth / 2 - Sizes.dimen_16,
               ),

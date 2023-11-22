@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app_flutter/common/constants/size_constants.dart';
 import 'package:movie_app_flutter/domain/entities/cast_entity.dart';
@@ -68,12 +69,9 @@ class ItemCastWidget extends StatelessWidget {
           child: ClipRRect(
             borderRadius:
             const BorderRadius.all(Radius.circular(Sizes.dimen_100)),
-            child: Image.network(
-              "${Endpoints.baseUrlImage}${castEntity.profilePath}",
+            child: CachedNetworkImage(
+              imageUrl: "${Endpoints.baseUrlImage}${castEntity.profilePath}",
               fit: BoxFit.cover,
-              errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
-                return const SizedBox.shrink();
-              },
             ),
           ),
         ),

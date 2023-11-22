@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app_flutter/common/constants/size_constants.dart';
 import 'package:movie_app_flutter/common/screenutil/screenutil.dart';
@@ -26,12 +27,9 @@ class MovieTabCardWidget extends StatelessWidget {
             Expanded(
               child: ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(Sizes.dimen_12)),
-                child: Image.network(
-                  "${Endpoints.baseUrlImage}${movie.posterPath}",
+                child: CachedNetworkImage(
+                  imageUrl: "${Endpoints.baseUrlImage}${movie.posterPath}",
                   fit: BoxFit.cover,
-                  errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
-                    return const SizedBox.shrink();
-                  },
                 ),
               ),
             ),

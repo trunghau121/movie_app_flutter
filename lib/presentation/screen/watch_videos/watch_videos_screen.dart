@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app_flutter/common/constants/languages.dart';
 import 'package:movie_app_flutter/common/utils/extensions.dart';
@@ -81,17 +82,14 @@ class _WatchVideosScreenState extends State<WatchVideosScreen> {
                               children: <Widget>[
                                 ClipRRect(
                                   borderRadius: const BorderRadius.all(Radius.circular(Sizes.dimen_16)),
-                                  child: Image.network(
-                                    YoutubePlayer.getThumbnail(
+                                  child: CachedNetworkImage(
+                                    imageUrl: YoutubePlayer.getThumbnail(
                                       videoId: _videos[i].key,
                                       quality: ThumbnailQuality.high,
                                     ),
                                     fit: BoxFit.cover,
                                     width: Sizes.dimen_80,
                                     height: Sizes.dimen_80,
-                                    errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
-                                      return const SizedBox.shrink();
-                                    },
                                   ),
                                 ),
                                 Expanded(

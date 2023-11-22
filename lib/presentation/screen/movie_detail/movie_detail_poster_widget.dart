@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app_flutter/common/constants/size_constants.dart';
 import 'package:movie_app_flutter/common/screenutil/screenutil.dart';
@@ -21,14 +22,11 @@ class MovieDetailPosterWidget extends StatelessWidget {
           borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(Sizes.dimen_16),
               bottomRight: Radius.circular(Sizes.dimen_16)),
-          child: Image.network(
-            "${Endpoints.urlOriginalImage}${movieDetailEntity.backdropPath}",
+          child: CachedNetworkImage(
+            imageUrl: "${Endpoints.urlOriginalImage}${movieDetailEntity.backdropPath}",
             fit: BoxFit.cover,
             width: ScreenUtil.screenWidth,
             height: ScreenUtil.screenHeight / 2,
-            errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
-              return const SizedBox.shrink();
-            },
           ),
         ),
         Positioned(

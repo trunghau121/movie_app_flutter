@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app_flutter/common/constants/size_constants.dart';
@@ -27,12 +28,9 @@ class MovieBackdropWidget extends StatelessWidget {
               heightFactor: 1,
               child: BlocBuilder<MovieBackdropCubit, MovieEntity?>(
                 builder: (BuildContext context, MovieEntity? state) {
-                  return Image.network(
-                    "${Endpoints.baseUrlImage}${state?.backdropPath}",
+                  return CachedNetworkImage(
+                    imageUrl: "${Endpoints.baseUrlImage}${state?.backdropPath}",
                     fit: BoxFit.fitHeight,
-                    errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
-                      return const SizedBox.shrink();
-                    },
                   );
                 },
               ),

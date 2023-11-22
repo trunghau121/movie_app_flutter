@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app_flutter/common/utils/navigation_util.dart';
 import 'package:movie_app_flutter/domain/entities/movie_entity.dart';
@@ -32,12 +33,9 @@ class SearchMovieCard extends StatelessWidget {
                 height: Sizes.dimen_100,
                 child: ClipRRect(
                   borderRadius: const BorderRadius.all(Radius.circular(Sizes.dimen_12)),
-                  child: Image.network(
-                    "${Endpoints.baseUrlImage}${movieEntity.posterPath}",
+                  child: CachedNetworkImage(
+                    imageUrl: "${Endpoints.baseUrlImage}${movieEntity.posterPath}",
                     fit: BoxFit.cover,
-                    errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
-                      return const SizedBox.shrink();
-                    },
                   ),
                 ),
               ),
