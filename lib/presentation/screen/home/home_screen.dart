@@ -50,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
         BlocProvider(create: (context) => _movieTabbedCubit),
       ],
       child: Scaffold(
+        resizeToAvoidBottomInset: false, // Avoid keyboard resize this screen
         drawer: const NavigationDrawerWidget(),
         body: BlocBuilder<MovieCarouselCubit, MovieCarouselState>(
           builder: (BuildContext context, MovieCarouselState state) {
@@ -83,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
               );
             } else if (state is MovieCarouselLoading) {
               return const Center(
-               child: LoadingCircle(size: Sizes.dimen_230),
+                child: LoadingCircle(size: Sizes.dimen_230),
               );
             }
             return const SizedBox.shrink();

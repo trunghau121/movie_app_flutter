@@ -37,7 +37,6 @@ class _SearchAppbarState extends State<SearchAppbar> {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -68,6 +67,7 @@ class _SearchAppbarState extends State<SearchAppbar> {
               textInputAction: TextInputAction.done,
               keyboardType: TextInputType.text,
               maxLines: 1,
+              autofocus: true,
               decoration: InputDecoration(
                   filled: true,
                   fillColor: kColorViolet.withOpacity(0.2),
