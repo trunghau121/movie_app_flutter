@@ -1,13 +1,16 @@
 import 'package:get_it/get_it.dart';
 import 'package:movie_app_flutter/data/data_sources/app_local_data_source.dart';
+import 'package:movie_app_flutter/data/data_sources/movie_local_data_source.dart';
 import 'package:movie_app_flutter/data/data_sources/movie_remote_data_resource.dart';
 import 'package:movie_app_flutter/data/remote/remote_client.dart';
 import 'package:movie_app_flutter/data/repositories/app_repository_impl.dart';
 import 'package:movie_app_flutter/data/repositories/movie_repository_impl.dart';
 import 'package:movie_app_flutter/domain/repositories/app_repository.dart';
 import 'package:movie_app_flutter/domain/repositories/movie_repository.dart';
+import 'package:movie_app_flutter/domain/usecases/delete_favorite_movie.dart';
 import 'package:movie_app_flutter/domain/usecases/get_cast_crew.dart';
 import 'package:movie_app_flutter/domain/usecases/get_coming_soon.dart';
+import 'package:movie_app_flutter/domain/usecases/get_favorite_movies.dart';
 import 'package:movie_app_flutter/domain/usecases/get_language.dart';
 import 'package:movie_app_flutter/domain/usecases/get_movie_detail.dart';
 import 'package:movie_app_flutter/domain/usecases/get_playing_now.dart';
@@ -16,8 +19,10 @@ import 'package:movie_app_flutter/domain/usecases/get_theme.dart';
 import 'package:movie_app_flutter/domain/usecases/get_trending.dart';
 import 'package:movie_app_flutter/domain/usecases/get_video.dart';
 import 'package:movie_app_flutter/domain/usecases/movie_search.dart';
+import 'package:movie_app_flutter/domain/usecases/save_movie.dart';
 import 'package:movie_app_flutter/domain/usecases/update_language.dart';
 import 'package:movie_app_flutter/domain/usecases/update_theme.dart';
+import 'package:movie_app_flutter/presentation/bloc/favorite/favorite_cubit.dart';
 import 'package:movie_app_flutter/presentation/bloc/language/language_cubit.dart';
 import 'package:movie_app_flutter/presentation/bloc/loading/loading_cubit.dart';
 import 'package:movie_app_flutter/presentation/bloc/movie_backdrop/movie_backdrop_cubit.dart';
@@ -25,6 +30,7 @@ import 'package:movie_app_flutter/presentation/bloc/movie_carousel/movie_carouse
 import 'package:movie_app_flutter/presentation/bloc/movie_detail/movie_detail_cubit.dart';
 import 'package:movie_app_flutter/presentation/bloc/search_movie/search_movie_cubit.dart';
 import 'package:movie_app_flutter/presentation/bloc/theme/theme_cubit.dart';
+import '../domain/usecases/check_if_movie_favorite.dart';
 import '../presentation/bloc/cast_crew/cast_crew_cubit.dart';
 import '../presentation/bloc/movie_tabbed/movie_tabbed_cubit.dart';
 import '../presentation/bloc/video/video_cubit.dart';
@@ -36,8 +42,11 @@ Future init() async {
   getItInstance.registerLazySingleton<MovieRemoteDataSource>(
     () => MovieRemoteDataSourceImpl(getItInstance(), getItInstance()),
   );
+  getItInstance.registerLazySingleton<MovieLocalDataSource>(
+    () => MovieLocalDataSourceImp(),
+  );
   getItInstance.registerLazySingleton<MovieRepository>(
-    () => MovieRepositoryImpl(getItInstance()),
+    () => MovieRepositoryImpl(getItInstance(), getItInstance()),
   );
   getItInstance.registerLazySingleton<AppLocalDataSource>(
     () => AppLocalDataSourceImpl(),
@@ -59,6 +68,11 @@ Future init() async {
   getItInstance.registerLazySingleton(() => UpdateTheme(getItInstance()));
   getItInstance.registerLazySingleton(() => GetCastCrew(getItInstance()));
   getItInstance.registerLazySingleton(() => GetVideo(getItInstance()));
+  getItInstance.registerLazySingleton(() => GetFavoriteMovies(getItInstance()));
+  getItInstance.registerLazySingleton(() => SaveMovie(getItInstance()));
+  getItInstance.registerLazySingleton(() => CheckIfFavoriteMovie(getItInstance()));
+  getItInstance
+      .registerLazySingleton(() => DeleteFavoriteMovie(getItInstance()));
 
   // Bloc
   getItInstance.registerFactory(() => SearchMovieCubit(getItInstance()));
@@ -89,7 +103,16 @@ Future init() async {
 
   getItInstance.registerFactory(() => VideoCubit(getItInstance()));
   getItInstance.registerFactory(() => CastCrewCubit(getItInstance()));
+  getItInstance.registerFactory(
+    () => FavoriteCubit(
+      saveMovie: getItInstance(),
+      getFavoriteMovies: getItInstance(),
+      deleteFavoriteMovie: getItInstance(),
+      checkIfFavoriteMovie: getItInstance(),
+    ),
+  );
   getItInstance.registerFactory(() => MovieDetailCubit(
+        getItInstance(),
         getItInstance(),
         getItInstance(),
         getItInstance(),

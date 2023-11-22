@@ -4,6 +4,7 @@ import 'package:movie_app_flutter/common/constants/image_constant.dart';
 import 'package:movie_app_flutter/common/constants/languages.dart';
 import 'package:movie_app_flutter/common/constants/size_constants.dart';
 import 'package:movie_app_flutter/common/utils/extensions.dart';
+import 'package:movie_app_flutter/common/utils/navigation_util.dart';
 import 'package:movie_app_flutter/presentation/bloc/language/language_cubit.dart';
 import 'package:movie_app_flutter/presentation/screen/drawer/navigation_expand_list_item.dart';
 import 'package:movie_app_flutter/presentation/screen/drawer/navigation_list_item.dart';
@@ -49,6 +50,7 @@ class NavigationDrawerWidget extends StatelessWidget {
               title: Languages.favoriteMovies.translator(context),
               onPressed: () {
                 Scaffold.of(context).closeDrawer();
+                NavigationUtil.gotoFavorite(context);
               },
             ),
             NavigationExpanedListItem(

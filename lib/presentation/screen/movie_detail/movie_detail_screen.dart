@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app_flutter/di/get_it.dart';
 import 'package:movie_app_flutter/presentation/bloc/cast_crew/cast_crew_cubit.dart';
+import 'package:movie_app_flutter/presentation/bloc/favorite/favorite_cubit.dart';
 import 'package:movie_app_flutter/presentation/bloc/movie_detail/movie_detail_cubit.dart';
 import 'package:movie_app_flutter/presentation/bloc/movie_detail/movie_detail_state.dart';
 import 'package:movie_app_flutter/presentation/bloc/video/video_cubit.dart';
@@ -28,13 +29,16 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
   late MovieDetailCubit _movieDetailCubit;
   late CastCrewCubit _castCrewCubit;
   late VideoCubit _videoCubit;
+  late FavoriteCubit _favoriteCubit;
 
   @override
   void initState() {
     _movieDetailCubit = getItInstance<MovieDetailCubit>();
     _castCrewCubit = _movieDetailCubit.castCrewCubit;
     _videoCubit = _movieDetailCubit.videoCubit;
+    _favoriteCubit = _movieDetailCubit.favoriteCubit;
     _movieDetailCubit.loadMovieDetail(widget.movieDetailArguments.movieId);
+    _favoriteCubit.checkIfMovieFavorite(widget.movieDetailArguments.movieId);
     super.initState();
   }
 
@@ -43,6 +47,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
     _movieDetailCubit.close();
     _castCrewCubit.close();
     _videoCubit.close();
+    _favoriteCubit.close();
     super.dispose();
   }
 
@@ -54,6 +59,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
           BlocProvider(create: (context) => _movieDetailCubit),
           BlocProvider(create: (context) => _castCrewCubit),
           BlocProvider(create: (context) => _videoCubit),
+          BlocProvider(create: (context) => _favoriteCubit),
         ],
         child: BlocBuilder<MovieDetailCubit, MovieDetailState>(
           builder: (BuildContext context, MovieDetailState state) {
@@ -76,7 +82,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                   ),
                   SizedBox(
                       height: Sizes.dimen_80 + ScreenUtil.statusBarHeight,
-                      child: const AppbarDetailMovieWidget()),
+                      child: AppbarDetailMovieWidget(state.movieDetail)),
                 ],
               );
             } else if (state is MovieDetailLoading) {

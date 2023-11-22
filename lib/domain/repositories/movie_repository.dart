@@ -2,6 +2,7 @@ import 'package:movie_app_flutter/domain/entities/cast_entity.dart';
 import 'package:movie_app_flutter/domain/entities/video_entity.dart';
 import '../../common/result.dart';
 import '../entities/movie_detail_entity.dart';
+import '../entities/movie_entity.dart';
 import '../entities/movies_result_entity.dart';
 
 abstract class MovieRepository{
@@ -13,4 +14,8 @@ abstract class MovieRepository{
   Future<Result<List<CastEntity>>> getCastCrew(int movieId);
   Future<Result<MoviesResultEntity>> getSearchedMovies(String searchTerm);
   Future<Result<List<VideoEntity>>> getVideos(int movieId);
+  Future<Result<void>> saveMovie(MovieEntity movieEntity);
+  Future<Result<List<MovieEntity>>> getFavoriteMovies();
+  Future<Result<void>> deleteFavoriteMovie(int movieId);
+  Future<Result<bool>> checkIfMovieFavorite(int movieId);
 }

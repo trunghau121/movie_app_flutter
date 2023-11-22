@@ -77,7 +77,7 @@ class MovieDetailPosterWidget extends StatelessWidget {
         Positioned(
           left: (ScreenUtil.screenWidth / 2) - Sizes.dimen_32,
           top: ((ScreenUtil.screenHeight / 2) / 2) - Sizes.dimen_32,
-          child: WatchVideosButton(),
+          child: const WatchVideosButton(),
         ),
       ],
     );

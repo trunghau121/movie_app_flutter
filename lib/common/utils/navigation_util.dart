@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app_flutter/presentation/screen/favorite/favorite_screen.dart';
 import 'package:movie_app_flutter/presentation/screen/movie_detail/movie_detail_arguments.dart';
 import 'package:movie_app_flutter/presentation/screen/movie_detail/movie_detail_screen.dart';
 import 'package:movie_app_flutter/presentation/screen/search_movie/search_movie_screen.dart';
@@ -27,6 +28,14 @@ class NavigationUtil {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => const SearchMovieScreen(),
+      ),
+    );
+  }
+
+  static void gotoFavorite(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const FavoriteScreen(),
       ),
     );
   }
