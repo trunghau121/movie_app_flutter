@@ -111,7 +111,7 @@ class MovieRemoteDataSourceImpl extends MovieRemoteDataSource {
   }
 
   @override
-  Future<Result<VideoResultModel>> getVideos(int movieId) {
+  Future<Result<VideoResultModel>> getVideos(int movieId){
     return getResultApi(
           () => _client.get('/movie/$movieId/videos', null, null),
           (JSON json) => VideoResultModel.fromJson(json),

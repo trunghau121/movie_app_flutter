@@ -1,6 +1,6 @@
 import '../../../domain/entities/video_entity.dart';
 
-class VideosArguments {
+class WatchVideosArguments {
   final List<VideoEntity> videos;
-  VideosArguments(this.videos);
+  WatchVideosArguments(this.videos);
 }

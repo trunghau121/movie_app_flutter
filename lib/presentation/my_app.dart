@@ -1,3 +1,5 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:movie_app_flutter/common/constants/languages.dart';
@@ -7,8 +9,6 @@ import 'package:movie_app_flutter/presentation/bloc/language/language_cubit.dart
 import 'package:movie_app_flutter/presentation/bloc/theme/theme_cubit.dart';
 import 'package:movie_app_flutter/presentation/wiredash_app.dart';
 import '../../theme/theme.dart';
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/material.dart';
 import 'app_localizations.dart';
 import 'screen/home/home_screen.dart';
 

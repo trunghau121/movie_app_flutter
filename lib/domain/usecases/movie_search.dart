@@ -6,11 +6,10 @@ import 'usecase.dart';
 
 class SearchMovies extends UseCase<MoviesResultEntity, MovieSearchParams> {
   final MovieRepository repository;
-
   SearchMovies(this.repository);
 
   @override
-  Future<Result<MoviesResultEntity>> call(MovieSearchParams params) async {
-    return await repository.getSearchedMovies(params.searchTerm);
+  Future<Result<MoviesResultEntity>> call(MovieSearchParams params) {
+    return repository.getSearchedMovies(params.searchTerm);
   }
 }

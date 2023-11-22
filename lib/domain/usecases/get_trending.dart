@@ -10,8 +10,8 @@ class GetTrending extends UseCase<MoviesResultEntity, NoParams>{
   GetTrending(this.movieRepository);
 
   @override
-  Future<Result<MoviesResultEntity>> call(NoParams params) async{
-    return await movieRepository.getTrending();
+  Future<Result<MoviesResultEntity>> call(NoParams params){
+    return movieRepository.getTrending();
   }
 
 }

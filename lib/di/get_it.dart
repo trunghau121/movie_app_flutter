@@ -23,6 +23,7 @@ import 'package:movie_app_flutter/presentation/bloc/loading/loading_cubit.dart';
 import 'package:movie_app_flutter/presentation/bloc/movie_backdrop/movie_backdrop_cubit.dart';
 import 'package:movie_app_flutter/presentation/bloc/movie_carousel/movie_carousel_cubit.dart';
 import 'package:movie_app_flutter/presentation/bloc/movie_detail/movie_detail_cubit.dart';
+import 'package:movie_app_flutter/presentation/bloc/search_movie/search_movie_cubit.dart';
 import 'package:movie_app_flutter/presentation/bloc/theme/theme_cubit.dart';
 import '../presentation/bloc/cast_crew/cast_crew_cubit.dart';
 import '../presentation/bloc/movie_tabbed/movie_tabbed_cubit.dart';
@@ -60,6 +61,7 @@ Future init() async {
   getItInstance.registerLazySingleton(() => GetVideo(getItInstance()));
 
   // Bloc
+  getItInstance.registerFactory(() => SearchMovieCubit(getItInstance()));
   getItInstance.registerFactory(() => MovieBackdropCubit());
   getItInstance.registerSingleton<LoadingCubit>(LoadingCubit());
   getItInstance.registerFactory(() => MovieCarouselCubit(

@@ -10,7 +10,7 @@ class GetComingSoon extends UseCase<MoviesResultEntity, NoParams>{
   GetComingSoon(this.movieRepository);
 
   @override
-  Future<Result<MoviesResultEntity>> call(NoParams params) async{
-    return await movieRepository.getComingSoon();
+  Future<Result<MoviesResultEntity>> call(NoParams params){
+    return movieRepository.getComingSoon();
   }
 }

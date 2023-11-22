@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movie_app_flutter/common/constants/icons_constant.dart';
+import 'package:movie_app_flutter/common/utils/navigation_util.dart';
 import 'package:movie_app_flutter/theme/theme.dart';
 import '../../common/constants/size_constants.dart';
 import '../../common/screenutil/screenutil.dart';
@@ -28,7 +29,9 @@ class AppbarWidget extends StatelessWidget {
               style: PrimaryFont.bold(Sizes.dimen_32)
                   .copyWith(color: Colors.white)),
           IconButton(
-            onPressed: () => {},
+            onPressed: () => {
+              NavigationUtil.gotoSearchMovie(context)
+            },
             icon: const Icon(
               Icons.search_outlined,
               color: Colors.white,

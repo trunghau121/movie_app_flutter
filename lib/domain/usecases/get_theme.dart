@@ -8,7 +8,7 @@ class GetTheme extends UseCase<String, NoParams> {
   GetTheme(this.appRepository);
 
   @override
-  Future<Result<String>> call(NoParams params) async {
-    return await appRepository.getPreferredTheme();
+  Future<Result<String>> call(NoParams params){
+    return appRepository.getPreferredTheme();
   }
 }

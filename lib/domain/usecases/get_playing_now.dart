@@ -10,7 +10,7 @@ class GetPlayingNow extends UseCase<MoviesResultEntity, NoParams>{
   GetPlayingNow(this.movieRepository);
 
   @override
-  Future<Result<MoviesResultEntity>> call(NoParams params) async{
-    return await movieRepository.getPopular();
+  Future<Result<MoviesResultEntity>> call(NoParams params){
+    return movieRepository.getPopular();
   }
 }
