@@ -4,42 +4,21 @@ part 'movie_table.g.dart';
 
 @HiveType(typeId: 0)
 class MovieTable extends MovieEntity{
-  @override
-  @HiveField(0)
-  final int id;
-
-  @override
-  @HiveField(1)
-  final String title;
-
-  @override
-  @HiveField(2)
-  final String posterPath;
-
-  @override
-  @HiveField(3)
-  final num voteAverage;
-
-  @override
-  @HiveField(4)
-  final String backdropPath;
-
-  @override
-  @HiveField(5)
-  final String releaseDate;
-
-  @override
-  @HiveField(6)
-  final String overview;
-
   const MovieTable({
-    required this.id,
-    required this.title,
-    required this.posterPath,
-    required this.voteAverage,
-    required this.backdropPath,
-    required this.releaseDate,
-    required this.overview,
+    @HiveField(0)
+    required int id,
+    @HiveField(1)
+    required String title,
+    @HiveField(2)
+    required String posterPath,
+    @HiveField(3)
+    required num voteAverage,
+    @HiveField(4)
+    required String backdropPath,
+    @HiveField(5)
+    required String releaseDate,
+    @HiveField(6)
+    required String overview,
   }) : super(
     id: id,
     title: title,
