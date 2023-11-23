@@ -10,11 +10,11 @@ import 'package:movie_app_flutter/common/utils/extensions.dart';
 import 'package:movie_app_flutter/di/get_it.dart';
 import 'package:movie_app_flutter/presentation/bloc/language/language_cubit.dart';
 import 'package:movie_app_flutter/presentation/bloc/theme/theme_cubit.dart';
+import 'package:movie_app_flutter/presentation/screen/splash_screen.dart';
 import 'package:movie_app_flutter/presentation/wiredash_app.dart';
 import '../../theme/theme.dart';
 import 'app_localizations.dart';
 import 'routes.dart';
-import 'screen/home/home_screen.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -84,7 +84,7 @@ class _MyAppState extends State<MyApp> {
                       final WidgetBuilder? builder = routes[settings.name.value()];
                       return CupertinoPageRoute(settings: settings, builder: builder!);
                     },
-                    home: const HomeScreen(),
+                    home: const SplashScreen(),
                     debugShowCheckedModeBanner: false,
                     builder: DevicePreview.appBuilder,
                   ),

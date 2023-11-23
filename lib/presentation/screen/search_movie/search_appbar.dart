@@ -79,10 +79,14 @@ class _SearchAppbarState extends State<SearchAppbar> {
                   ),
                   hintText: Languages.enterSearch.translator(context),
                   contentPadding: const EdgeInsets.all(Sizes.dimen_10),
+                  prefixIcon: const Icon(Icons.search, color: Colors.grey),
                   suffixIcon: _controller.text.isNotEmpty
                       ? IconButton(
                           onPressed: () {
-                            _controller.clear();
+                            setState(() {
+                              context.read<SearchMovieCubit>().clearSearch();
+                              _controller.clear();
+                            });
                           },
                           icon: const Icon(Icons.cancel, color: Colors.grey),
                         )
