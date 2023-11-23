@@ -2,25 +2,32 @@ import '../../domain/entities/movie_detail_entity.dart';
 
 class MovieDetailModel extends MovieDetailEntity {
   final bool adult;
+  @override
   final String backdropPath;
   final BelongsToCollection? belongsToCollection;
   final int budget;
   final List<Genres>? genres;
   final String homepage;
+  @override
   final int id;
   final String imdbId;
   final String originalLanguage;
   final String originalTitle;
+  @override
   final String overview;
   final double popularity;
+  @override
   final String posterPath;
+  @override
   final String releaseDate;
   final int revenue;
   final int runtime;
   final String status;
   final String tagline;
+  @override
   final String title;
   final bool video;
+  @override
   final num voteAverage;
   final int voteCount;
 

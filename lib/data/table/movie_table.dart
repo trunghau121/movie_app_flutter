@@ -4,24 +4,31 @@ part 'movie_table.g.dart';
 
 @HiveType(typeId: 0)
 class MovieTable extends MovieEntity{
+  @override
   @HiveField(0)
   final int id;
 
+  @override
   @HiveField(1)
   final String title;
 
+  @override
   @HiveField(2)
   final String posterPath;
 
+  @override
   @HiveField(3)
   final num voteAverage;
 
+  @override
   @HiveField(4)
   final String backdropPath;
 
+  @override
   @HiveField(5)
   final String releaseDate;
 
+  @override
   @HiveField(6)
   final String overview;
 

@@ -3,10 +3,13 @@ import '../../domain/entities/video_entity.dart';
 class VideoModel extends VideoEntity {
   String? iso6391;
   String? iso31661;
+  @override
   String name;
+  @override
   String key;
   String? site;
   int? size;
+  @override
   String type;
   bool? official;
   String? publishedAt;

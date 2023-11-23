@@ -2,18 +2,25 @@ import 'package:movie_app_flutter/common/typedefs.dart';
 import 'package:movie_app_flutter/domain/entities/movie_entity.dart';
 
 class MovieModel extends MovieEntity {
+  @override
   final int id;
   final bool? video;
   final int? voteCount;
+  @override
   final double? voteAverage;
+  @override
   final String title;
+  @override
   final String? releaseDate;
   final String? originalLanguage;
   final String? originalTitle;
   final List<int>? genreIds;
+  @override
   final String backdropPath;
   final bool? adult;
+  @override
   final String? overview;
+  @override
   final String posterPath;
   final double? popularity;
   final String? mediaType;
