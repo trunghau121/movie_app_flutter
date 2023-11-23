@@ -14,9 +14,7 @@ class SearchMovieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => {
-        NavigationUtil.gotoDetail(context, movieEntity.id)
-      },
+      onTap: () => {NavigationUtil.gotoDetail(context, movieEntity.id)},
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: Sizes.dimen_16,
@@ -32,11 +30,15 @@ class SearchMovieCard extends StatelessWidget {
                 width: Sizes.dimen_100,
                 height: Sizes.dimen_100,
                 child: ClipRRect(
-                  borderRadius: const BorderRadius.all(Radius.circular(Sizes.dimen_12)),
+                  borderRadius:
+                      const BorderRadius.all(Radius.circular(Sizes.dimen_12)),
                   child: CachedNetworkImage(
-                    imageUrl: "${Endpoints.baseUrlImage}${movieEntity.posterPath}",
-                    fit: BoxFit.cover,
-                  ),
+                      imageUrl:
+                          "${Endpoints.baseUrlImage}${movieEntity.posterPath}",
+                      fit: BoxFit.cover,
+                      errorWidget: (context, exception, object) {
+                        return const SizedBox.shrink();
+                      }),
                 ),
               ),
             ),

@@ -22,9 +22,11 @@ class MovieCardWidget extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(Sizes.dimen_16),
           child: CachedNetworkImage(
-            imageUrl: "${Endpoints.baseUrlImage}$posterPath",
-            fit: BoxFit.cover,
-          ),
+              imageUrl: "${Endpoints.baseUrlImage}$posterPath",
+              fit: BoxFit.cover,
+              errorWidget: (context, exception, object) {
+                return const SizedBox.shrink();
+              }),
         ),
       ),
     );

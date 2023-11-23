@@ -23,11 +23,14 @@ class MovieDetailPosterWidget extends StatelessWidget {
               bottomLeft: Radius.circular(Sizes.dimen_16),
               bottomRight: Radius.circular(Sizes.dimen_16)),
           child: CachedNetworkImage(
-            imageUrl: "${Endpoints.urlOriginalImage}${movieDetailEntity.backdropPath}",
-            fit: BoxFit.cover,
-            width: ScreenUtil.screenWidth,
-            height: ScreenUtil.screenHeight / 2,
-          ),
+              imageUrl:
+                  "${Endpoints.urlOriginalImage}${movieDetailEntity.backdropPath}",
+              fit: BoxFit.cover,
+              width: ScreenUtil.screenWidth,
+              height: ScreenUtil.screenHeight / 2,
+              errorWidget: (context, exception, object) {
+                return const SizedBox.shrink();
+              }),
         ),
         Positioned(
           left: Sizes.dimen_16,
@@ -45,10 +48,11 @@ class MovieDetailPosterWidget extends StatelessWidget {
               borderRadius: const BorderRadius.all(
                 Radius.circular(Sizes.dimen_16),
               ),
-              child: Image.network(
-                "${Endpoints.baseUrlImage}${movieDetailEntity.posterPath}",
+              child: CachedNetworkImage(
+                imageUrl:
+                    "${Endpoints.baseUrlImage}${movieDetailEntity.posterPath}",
                 fit: BoxFit.cover,
-                errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                errorWidget: (context, exception, object) {
                   return const SizedBox.shrink();
                 },
               ),

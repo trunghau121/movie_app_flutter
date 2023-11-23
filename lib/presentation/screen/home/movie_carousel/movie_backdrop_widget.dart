@@ -29,9 +29,12 @@ class MovieBackdropWidget extends StatelessWidget {
               child: BlocBuilder<MovieBackdropCubit, MovieEntity?>(
                 builder: (BuildContext context, MovieEntity? state) {
                   return CachedNetworkImage(
-                    imageUrl: "${Endpoints.baseUrlImage}${state?.backdropPath}",
-                    fit: BoxFit.fitHeight,
-                  );
+                      imageUrl:
+                          "${Endpoints.baseUrlImage}${state?.backdropPath}",
+                      fit: BoxFit.fitHeight,
+                      errorWidget: (context, exception, object) {
+                        return const SizedBox.shrink();
+                      });
                 },
               ),
             ),

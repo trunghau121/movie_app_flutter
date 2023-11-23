@@ -16,9 +16,7 @@ class MovieTabCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => {
-        NavigationUtil.gotoDetail(context, movie.id)
-      },
+      onTap: () => {NavigationUtil.gotoDetail(context, movie.id)},
       child: SizedBox(
         width: ScreenUtil.screenWidth / 2.7,
         child: Column(
@@ -26,18 +24,22 @@ class MovieTabCardWidget extends StatelessWidget {
           children: [
             Expanded(
               child: ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(Sizes.dimen_12)),
+                borderRadius:
+                    const BorderRadius.all(Radius.circular(Sizes.dimen_12)),
                 child: CachedNetworkImage(
-                  imageUrl: "${Endpoints.baseUrlImage}${movie.posterPath}",
-                  fit: BoxFit.cover,
-                ),
+                    imageUrl: "${Endpoints.baseUrlImage}${movie.posterPath}",
+                    fit: BoxFit.cover,
+                    errorWidget: (context, exception, object) {
+                      return const SizedBox.shrink();
+                    }),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(Sizes.dimen_10),
               child: Text(
                 movie.title.intelliTrim(15),
-                style: PrimaryFont.semiBold(Sizes.dimen_15).copyWith(color: Colors.white),
+                style: PrimaryFont.semiBold(Sizes.dimen_15)
+                    .copyWith(color: Colors.white),
                 maxLines: 1,
               ),
             )

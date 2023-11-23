@@ -16,7 +16,8 @@ class ItemCastWidget extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Container(
-          margin: const EdgeInsets.only(top: Sizes.dimen_6, left: Sizes.dimen_35, right: Sizes.dimen_10),
+          margin: const EdgeInsets.only(
+              top: Sizes.dimen_6, left: Sizes.dimen_35, right: Sizes.dimen_10),
           child: Container(
             height: Sizes.dimen_48,
             padding: const EdgeInsets.only(
@@ -68,11 +69,13 @@ class ItemCastWidget extends StatelessWidget {
           ),
           child: ClipRRect(
             borderRadius:
-            const BorderRadius.all(Radius.circular(Sizes.dimen_100)),
+                const BorderRadius.all(Radius.circular(Sizes.dimen_100)),
             child: CachedNetworkImage(
-              imageUrl: "${Endpoints.baseUrlImage}${castEntity.profilePath}",
-              fit: BoxFit.cover,
-            ),
+                imageUrl: "${Endpoints.baseUrlImage}${castEntity.profilePath}",
+                fit: BoxFit.cover,
+                errorWidget: (context, exception, object) {
+                  return const SizedBox.shrink();
+                }),
           ),
         ),
       ],

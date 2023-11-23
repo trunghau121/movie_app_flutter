@@ -33,10 +33,12 @@ class FavoriteMovieCardWidget extends StatelessWidget {
           child: Stack(
             children: <Widget>[
               CachedNetworkImage(
-                imageUrl: '${Endpoints.baseUrlImage}${movie.posterPath}',
-                fit: BoxFit.cover,
-                width: ScreenUtil.screenWidth / 2 - Sizes.dimen_16,
-              ),
+                  imageUrl: '${Endpoints.baseUrlImage}${movie.posterPath}',
+                  fit: BoxFit.cover,
+                  width: ScreenUtil.screenWidth / 2 - Sizes.dimen_16,
+                  errorWidget: (context, exception, object) {
+                    return const SizedBox.shrink();
+                  }),
               Align(
                 alignment: Alignment.topRight,
                 child: GestureDetector(

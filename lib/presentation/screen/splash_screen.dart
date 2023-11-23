@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: kColorViolet,
       child: Center(
           child: Image.asset(

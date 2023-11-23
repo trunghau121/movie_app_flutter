@@ -48,7 +48,7 @@ class _WatchVideosScreenState extends State<WatchVideosScreen> {
         title: Text(
           Languages.watchTrailers.translator(context),
           style:
-          PrimaryFont.medium(Sizes.dimen_20).copyWith(color: Colors.white),
+              PrimaryFont.medium(Sizes.dimen_20).copyWith(color: Colors.white),
         ),
       ),
       body: YoutubePlayerBuilder(
@@ -65,11 +65,13 @@ class _WatchVideosScreenState extends State<WatchVideosScreen> {
                     children: [
                       for (int i = 0; i < _videos.length; i++)
                         Container(
-                          padding:
-                          const EdgeInsets.symmetric(vertical: Sizes.dimen_8, horizontal: Sizes.dimen_8),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: Sizes.dimen_8,
+                              horizontal: Sizes.dimen_8),
                           decoration: BoxDecoration(
-                            color: _selectedIndex == i ? kColorViolet : Colors.transparent
-                          ),
+                              color: _selectedIndex == i
+                                  ? kColorViolet
+                                  : Colors.transparent),
                           child: GestureDetector(
                             onTap: () {
                               _controller.load(_videos[i].key);
@@ -81,28 +83,31 @@ class _WatchVideosScreenState extends State<WatchVideosScreen> {
                             child: Row(
                               children: <Widget>[
                                 ClipRRect(
-                                  borderRadius: const BorderRadius.all(Radius.circular(Sizes.dimen_16)),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(Sizes.dimen_16)),
                                   child: CachedNetworkImage(
-                                    imageUrl: YoutubePlayer.getThumbnail(
-                                      videoId: _videos[i].key,
-                                      quality: ThumbnailQuality.high,
-                                    ),
-                                    fit: BoxFit.cover,
-                                    width: Sizes.dimen_80,
-                                    height: Sizes.dimen_80,
-                                  ),
+                                      imageUrl: YoutubePlayer.getThumbnail(
+                                        videoId: _videos[i].key,
+                                        quality: ThumbnailQuality.high,
+                                      ),
+                                      fit: BoxFit.cover,
+                                      width: Sizes.dimen_80,
+                                      height: Sizes.dimen_80,
+                                      errorWidget:
+                                          (context, exception, object) {
+                                        return const SizedBox.shrink();
+                                      }),
                                 ),
                                 Expanded(
                                   child: Padding(
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: Sizes.dimen_8),
-                                    child: Text(
-                                      _videos[i].name,
+                                    child: Text(_videos[i].name,
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
-                                        style: PrimaryFont.medium(Sizes.dimen_18)
-                                        .copyWith(color: Colors.white)
-                                    ),
+                                        style:
+                                            PrimaryFont.medium(Sizes.dimen_18)
+                                                .copyWith(color: Colors.white)),
                                   ),
                                 ),
                               ],
