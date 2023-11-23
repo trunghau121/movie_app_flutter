@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:movie_app_flutter/data/table/movie_table.dart';
-import '../di/get_it.dart' as getIt;
+import '../di/get_it.dart' as get_it;
 import 'presentation/my_app.dart';
 import 'dart:io' show Platform;
 import 'package:path_provider/path_provider.dart' as path_provider;
@@ -15,7 +15,7 @@ void main() async{
   final appDocumentDir = await path_provider.getApplicationDocumentsDirectory();
   Hive.init(appDocumentDir.path);
   Hive.registerAdapter(MovieTableAdapter());
-  unawaited(getIt.init());
+  unawaited(get_it.init());
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(

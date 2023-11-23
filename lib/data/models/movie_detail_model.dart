@@ -2,57 +2,43 @@ import '../../domain/entities/movie_detail_entity.dart';
 
 class MovieDetailModel extends MovieDetailEntity {
   final bool adult;
-  @override
-  final String backdropPath;
   final BelongsToCollection? belongsToCollection;
   final int budget;
   final List<Genres>? genres;
   final String homepage;
-  @override
-  final int id;
   final String imdbId;
   final String originalLanguage;
   final String originalTitle;
-  @override
-  final String overview;
   final double popularity;
-  @override
-  final String posterPath;
-  @override
-  final String releaseDate;
   final int revenue;
   final int runtime;
   final String status;
   final String tagline;
-  @override
-  final String title;
   final bool video;
-  @override
-  final num voteAverage;
   final int voteCount;
 
   const MovieDetailModel(
       {required this.adult,
-      required this.backdropPath,
+      required String backdropPath,
       required this.belongsToCollection,
       required this.budget,
       required this.genres,
       required this.homepage,
-      required this.id,
+      required int id,
       required this.imdbId,
       required this.originalLanguage,
       required this.originalTitle,
-      required this.overview,
+      required String overview,
       required this.popularity,
-      required this.posterPath,
-      required this.releaseDate,
+      required String posterPath,
+      required String releaseDate,
       required this.revenue,
       required this.runtime,
       required this.status,
       required this.tagline,
-      required this.title,
+      required String title,
       required this.video,
-      required this.voteAverage,
+      required num voteAverage,
       required this.voteCount})
       : super(
           id: id,

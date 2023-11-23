@@ -8,7 +8,7 @@ class DeleteFavoriteMovie extends UseCase<void, MovieParams> {
   DeleteFavoriteMovie(this.movieRepository);
 
   @override
-  Future<Result<void>> call(MovieParams movieParams) async {
-    return await movieRepository.deleteFavoriteMovie(movieParams.id);
+  Future<Result<void>> call(MovieParams params) async {
+    return await movieRepository.deleteFavoriteMovie(params.id);
   }
 }

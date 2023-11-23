@@ -8,7 +8,7 @@ class CheckIfFavoriteMovie extends UseCase<bool, MovieParams> {
   CheckIfFavoriteMovie(this.movieRepository);
 
   @override
-  Future<Result<bool>> call(MovieParams movieParams) async {
-    return await movieRepository.checkIfMovieFavorite(movieParams.id);
+  Future<Result<bool>> call(MovieParams params) async {
+    return await movieRepository.checkIfMovieFavorite(params.id);
   }
 }

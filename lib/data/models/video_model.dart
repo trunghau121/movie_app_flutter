@@ -3,14 +3,8 @@ import '../../domain/entities/video_entity.dart';
 class VideoModel extends VideoEntity {
   String? iso6391;
   String? iso31661;
-  @override
-  String name;
-  @override
-  String key;
   String? site;
   int? size;
-  @override
-  String type;
   bool? official;
   String? publishedAt;
   String? id;
@@ -18,11 +12,11 @@ class VideoModel extends VideoEntity {
   VideoModel(
       {this.iso6391,
       this.iso31661,
-      required this.name,
-      required this.key,
+      required String name,
+      required String key,
       this.site,
       this.size,
-      required this.type,
+      required String type,
       this.official,
       this.publishedAt,
       this.id})

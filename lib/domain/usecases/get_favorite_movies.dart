@@ -9,7 +9,7 @@ class GetFavoriteMovies extends UseCase<List<MovieEntity>, NoParams> {
   GetFavoriteMovies(this.movieRepository);
 
   @override
-  Future<Result<List<MovieEntity>>> call(NoParams noParams) async {
+  Future<Result<List<MovieEntity>>> call(NoParams params) async {
     return await movieRepository.getFavoriteMovies();
   }
 }

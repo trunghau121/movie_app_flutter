@@ -3,32 +3,24 @@ import 'package:movie_app_flutter/domain/entities/cast_entity.dart';
 class CastModel extends CastEntity {
   bool? adult;
   int? gender;
-  @override
-  int id;
   String? knownForDepartment;
-  @override
-  String name;
   String? originalName;
   double? popularity;
-  @override
-  String profilePath;
   int? castId;
-  @override
-  String character;
   String? creditId;
   int? order;
 
   CastModel({
     this.adult,
     this.gender,
-    required this.id,
+    required int id,
     this.knownForDepartment,
-    required this.name,
+    required String name,
     this.originalName,
     this.popularity,
-    required this.profilePath,
+    required String profilePath,
     this.castId,
-    required this.character,
+    required String character,
     this.creditId,
     this.order,
   }) : super(
