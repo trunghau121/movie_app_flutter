@@ -114,7 +114,7 @@ jobs:
       - name: Create a Release in GitHub
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "build/app/outputs/bundle/release/app-release.apk"
+          artifacts: "build/app/outputs/flutter-apk/app-release.apk"
           token: ${{ secrets.TOKEN }}
           tag: ${{ steps.version.outputs.content }}
           commit: ${{ github.sha }}
@@ -124,7 +124,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: appapk
-          path: build/app/outputs/bundle/release/app-release.apk
+          path: build/app/outputs/flutter-apk/app-release.apk
 
   firebase_distribution:
     name: Release app to firebase distribution
@@ -134,7 +134,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Get appapk from artifacts
+      - name: Get app apk from artifacts
         uses: actions/download-artifact@v3
         with:
           name: appapk
