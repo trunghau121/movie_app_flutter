@@ -22,11 +22,11 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
-      statusBarColor: Colors.white, // Color for Android
-      statusBarBrightness:
-          Brightness.dark // Dark == white status bar -- for IOS.
-      ));
+  if(!Platform.isAndroid) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
+        statusBarBrightness: Brightness.dark // Dark == white status bar -- for IOS.
+    ));
+  }
 
   runApp(
     DevicePreview(
