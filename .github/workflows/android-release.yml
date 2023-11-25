@@ -1,4 +1,4 @@
-name: Analyze, Test and Build
+name: Analyze, Test and Build for Android
 
 on:
   push:
@@ -16,6 +16,7 @@ jobs:
         with:
           flutter-version: '3.13.9'
           channel: 'stable'
+          cache: true
 
       - name: Checkout code
         uses: actions/checkout@v3
@@ -67,12 +68,14 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: '12.x'
+          cache: 'gradle'
 
       - name: Clone flutter repository from stable channel with 3.13.9 version
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.13.9'
           channel: 'stable'
+          cache: true
 
       - name: Get version.txt
         uses: actions/download-artifact@v3
@@ -123,7 +126,7 @@ jobs:
       - name: Upload app apk
         uses: actions/upload-artifact@v3
         with:
-          name: appapk
+          name: android-release
           path: build/app/outputs/flutter-apk/app-release.apk
 
   firebase_distribution:
@@ -137,7 +140,7 @@ jobs:
       - name: Get app apk from artifacts
         uses: actions/download-artifact@v3
         with:
-          name: appapk
+          name: android-release
 
       - name: Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1.7.0
