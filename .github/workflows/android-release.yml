@@ -16,7 +16,6 @@ jobs:
         with:
           flutter-version: '3.13.9'
           channel: 'stable'
-          cache: true
 
       - name: Checkout code
         uses: actions/checkout@v3
@@ -68,14 +67,12 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: '12.x'
-          cache: 'gradle'
 
       - name: Clone flutter repository from stable channel with 3.13.9 version
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.13.9'
           channel: 'stable'
-          cache: true
 
       - name: Get version.txt
         uses: actions/download-artifact@v3
