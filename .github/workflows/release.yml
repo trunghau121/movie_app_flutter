@@ -123,7 +123,7 @@ jobs:
       - name: Upload app apk
         uses: actions/upload-artifact@v3
         with:
-          name: appapk
+          name: android-release
           path: build/app/outputs/flutter-apk/app-release.apk
 
   firebase_distribution:
@@ -137,7 +137,7 @@ jobs:
       - name: Get app apk from artifacts
         uses: actions/download-artifact@v3
         with:
-          name: appapk
+          name: android-release
 
       - name: Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1.7.0
