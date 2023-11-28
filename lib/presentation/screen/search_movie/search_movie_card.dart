@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app_flutter/common/utils/navigation_util.dart';
 import 'package:movie_app_flutter/domain/entities/movie_entity.dart';
 import '../../../common/constants/size_constants.dart';
-import '../../../data/remote/endpoints.dart';
+import '../../../common/constants/endpoints.dart';
 import '../../../theme/theme.dart';
 
 class SearchMovieCard extends StatelessWidget {

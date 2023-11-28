@@ -1,4 +1,6 @@
 import 'package:flutter/foundation.dart';
+import 'package:logger/logger.dart';
+import '../../common/constants/languages.dart';
 import '../../common/utils/remote_handel_error.dart';
 import 'package:dio/dio.dart';
 import '../../common/result.dart';
@@ -26,15 +28,16 @@ class BaseRepository {
         }
       } else {
         return Error(
-          RemoteHandelError.defaultErrorInternet,
+          Languages.somethingWentWrong,
           DioExceptionType.unknown,
         );
       }
-    } on Exception catch (exception) {
+    } catch (exception) {
+      Logger().e("Error: ${exception.toString()}");
       if(exception is DioException) {
         return RemoteHandelError().fromRemoteError(exception);
       }else {
-        return Error<Data>(RemoteHandelError.defaultErrorMessage, DioExceptionType.unknown);
+        return Error<Data>(Languages.somethingWentWrong, DioExceptionType.unknown);
       }
     }
   }

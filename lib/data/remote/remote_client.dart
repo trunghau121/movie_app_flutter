@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:movie_app_flutter/data/remote/endpoints.dart';
+import 'package:movie_app_flutter/common/constants/endpoints.dart';
 import '../../common/typedefs.dart';
 import '../remote/interceptors/authorization_interceptor.dart';
 import '../remote/interceptors/logger_interceptor.dart';

@@ -6,7 +6,7 @@ import 'package:movie_app_flutter/common/utils/extensions.dart';
 import 'package:movie_app_flutter/domain/entities/movie_entity.dart';
 import 'package:movie_app_flutter/theme/theme.dart';
 import '../../../../common/utils/navigation_util.dart';
-import '../../../../data/remote/endpoints.dart';
+import '../../../../common/constants/endpoints.dart';
 
 class MovieTabCardWidget extends StatelessWidget {
   final MovieEntity movie;

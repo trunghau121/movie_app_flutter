@@ -4,7 +4,7 @@ import 'package:movie_app_flutter/common/constants/size_constants.dart';
 import 'package:movie_app_flutter/common/screenutil/screenutil.dart';
 import 'package:movie_app_flutter/domain/entities/movie_detail_entity.dart';
 import 'package:movie_app_flutter/theme/theme.dart';
-import '../../../data/remote/endpoints.dart';
+import '../../../common/constants/endpoints.dart';
 import 'review_button_widget.dart';
 import 'watch_videos_button.dart';
 

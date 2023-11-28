@@ -11,8 +11,6 @@ class Languages {
   static const String language = 'language';
   static const String feedback = 'feedback';
   static const String retry = 'retry';
-  static const String somethingWentWrong = 'somethingWentWrong';
-  static const String checkNetwork = 'checkNetwork';
   static const String about = 'about';
   static const String okay = 'okay';
   static const String aboutDescription = 'aboutDescription';
@@ -29,7 +27,6 @@ class Languages {
   static const String loginToMovieApp = 'loginToMovieApp';
   static const String signIn = 'signIn';
   static const String wrongUsernamePassword = 'wrongUsernamePassword';
-  static const String noNetwork = 'noNetwork';
   static const String logout = 'logout';
   static const String sessionDenied = 'sessionDenied';
   static const String enterTMDbUsername = 'enterTMDbUsername';
@@ -39,4 +36,8 @@ class Languages {
   static const String showmore = 'showmore';
   static const String showless = 'showless';
   static const String enterSearch = 'enterSearch';
+  // Error in App
+  static const String somethingWentWrong = 'somethingWentWrong';
+  static const String noNetwork = 'noNetwork';
+  static const String lowConnectNetwork = 'lowConnectNetwork';
 }

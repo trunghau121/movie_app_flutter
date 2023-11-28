@@ -6,7 +6,7 @@ class MovieDetailModel extends MovieDetailEntity {
   final int budget;
   final List<Genres>? genres;
   final String homepage;
-  final String imdbId;
+  final String? imdbId;
   final String originalLanguage;
   final String originalTitle;
   final double popularity;
@@ -19,7 +19,7 @@ class MovieDetailModel extends MovieDetailEntity {
 
   const MovieDetailModel(
       {required this.adult,
-      required String backdropPath,
+      required String? backdropPath,
       required this.belongsToCollection,
       required this.budget,
       required this.genres,
@@ -47,7 +47,7 @@ class MovieDetailModel extends MovieDetailEntity {
           duration: runtime,
           overview: overview,
           voteAverage: voteAverage,
-          backdropPath: backdropPath,
+          backdropPath: backdropPath??"",
           posterPath: posterPath,
         );
 

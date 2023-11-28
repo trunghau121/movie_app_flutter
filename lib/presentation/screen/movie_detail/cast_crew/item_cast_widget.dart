@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app_flutter/common/constants/size_constants.dart';
 import 'package:movie_app_flutter/domain/entities/cast_entity.dart';
-import '../../../../data/remote/endpoints.dart';
+import '../../../../common/constants/endpoints.dart';
 import '../../../../theme/theme.dart';
 
 class ItemCastWidget extends StatelessWidget {
