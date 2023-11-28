@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-
 import '../../presentation/app_localizations.dart';
 
 extension StringX on String? {
@@ -29,10 +27,5 @@ extension BuildContextX on BuildContext {
 extension IntegerX on int?{
   int value({int defaultValue = 0}){
     return this?? defaultValue;
-  }
-
-  String toStringDate(){
-    var date = DateTime.fromMillisecondsSinceEpoch(this!*1000);
-    return DateFormat('dd/MM/yyyy').format(date);
   }
 }
