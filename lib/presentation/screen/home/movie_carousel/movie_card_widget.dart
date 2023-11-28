@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app_flutter/common/constants/size_constants.dart';
-import 'package:movie_app_flutter/data/remote/endpoints.dart';
+import 'package:movie_app_flutter/common/constants/endpoints.dart';
 
 import '../../../../common/utils/navigation_util.dart';
 

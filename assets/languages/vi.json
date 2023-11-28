@@ -8,8 +8,6 @@
     "soon": "Sắp chiếu",
     "okay": "Đồng ý",
     "retry": "Thử lại",
-    "somethingWentWrong": "Có lỗi xảy ra, vui lòng thử lại!",
-    "checkNetwork": "Không có internet, vui lon kiểm tra kết nối mạng",
     "aboutDescription": "Sản phẩm này sử dụng API TMDb nhưng không được TMDb xác nhận hoặc chứng nhận. Ứng dụng này được phát triển cho mục đích giáo dục.",
     "noMovies": "Rất tiếc, không có phim nào trong mục này",
     "cast": "Diễn viên",
@@ -22,7 +20,6 @@
     "signIn": "Đăng nhập",
     "logout": "Đăng xuất",
     "wrongUsernamePassword": "Tên đăng nhập hoặc email không đúng",
-    "noNetwork": "Không có kết nối mạng",
     "sessionDenied": "Kết nối bị từ chối",
     "enterTMDbUsername": "Nhập tên đăng nhập của TMDb...",
     "enterPassword": "Nhập mật khẩu...",
@@ -30,5 +27,8 @@
     "minutes": "Phút",
     "showmore": "Xem thêm",
     "showless": "Ẩn bớt",
-    "enterSearch": "Nhập từ khóa tìm kiếm"
+    "enterSearch": "Nhập từ khóa tìm kiếm",
+    "somethingWentWrong": "Có lỗi xảy ra, vui lòng thử lại!",
+    "noNetwork": "Không có kết nối mạng, vui thử lại",
+    "lowConnectNetwork": "kết nối mạng yếu, vui thử lại!"
 }

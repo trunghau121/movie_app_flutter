@@ -8,8 +8,6 @@
     "soon": "SOON",
     "okay": "Okay",
     "retry": "Retry",
-    "somethingWentWrong": "Something went wrong...",
-    "checkNetwork": "Please check your network connection and press Retry button or put in as a bug by pressing Feedback button.",
     "aboutDescription": "This product uses the TMDb API but is not endorsed or certified by TMDb. This app is developed for education purpose.",
     "noMovies": "Sorry, no movies under this section",
     "cast": "Cast",
@@ -22,7 +20,6 @@
     "signIn": "Sign In",
     "logout": "Log out",
     "wrongUsernamePassword": "Username or email id is invalid",
-    "noNetwork": "No network connection",
     "sessionDenied": "Session denied",
     "enterTMDbUsername": "Enter TMDb username here...",
     "enterPassword": "Enter password here...",
@@ -30,5 +27,8 @@
     "minutes": "Minutes",
     "showmore": "Show more",
     "showless": "Show less",
-    "enterSearch": "Enter keyword to search"
+    "enterSearch": "Enter keyword to search",
+    "somethingWentWrong": "Something went wrong, please try again!",
+    "noNetwork": "No network connection, please try again!",
+    "lowConnectNetwork": "Low network connection, please try again!"
 }

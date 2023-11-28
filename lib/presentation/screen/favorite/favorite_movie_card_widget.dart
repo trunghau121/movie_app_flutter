@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app_flutter/common/screenutil/screenutil.dart';
 import 'package:movie_app_flutter/common/utils/navigation_util.dart';
-import 'package:movie_app_flutter/data/remote/endpoints.dart';
+import 'package:movie_app_flutter/common/constants/endpoints.dart';
 import '../../../common/constants/size_constants.dart';
 import '../../../domain/entities/movie_entity.dart';
 import '../../bloc/favorite/favorite_cubit.dart';

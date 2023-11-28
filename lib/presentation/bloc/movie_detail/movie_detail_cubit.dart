@@ -22,11 +22,13 @@ class MovieDetailCubit extends Cubit<MovieDetailState> {
   Future<void> loadMovieDetail(int movieId) async {
     emit(MovieDetailLoading());
     (await getMovieDetail(MovieDetailParams(movieId: movieId))).when(
-      success: (data) => {emit(MovieDetailLoaded(data!))},
+      success: (data) {
+        castCrewCubit.loadCastCrew(movieId);
+        videoCubit.loadVideos(movieId);
+        emit(MovieDetailLoaded(data!));
+      },
       error: (message, type) =>
           {emit(MovieDetailError(messageError: message, type: type))},
     );
-    castCrewCubit.loadCastCrew(movieId);
-    videoCubit.loadVideos(movieId);
   }
 }

@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app_flutter/common/constants/languages.dart';
+import 'package:movie_app_flutter/common/utils/extensions.dart';
 import 'package:movie_app_flutter/theme/theme.dart';
 import '../../common/constants/size_constants.dart';
 import 'button.dart';
@@ -19,19 +21,19 @@ class AppErrorWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            contentError,
+            contentError.translator(context),
             textAlign: TextAlign.center,
-            style: PrimaryFont.medium(15).copyWith(color: Colors.white),
+            style: PrimaryFont.medium(Sizes.dimen_15).copyWith(color: Colors.white),
           ),
           ButtonBar(
             children: [
               Button(
                 onPressed: onPressed,
-                text: "Retry",
+                text: Languages.retry.translator(context),
               ),
               Button(
                 onPressed: () => {},
-                text: "FeelBack",
+                text: Languages.feedback.translator(context),
               ),
             ],
           ),

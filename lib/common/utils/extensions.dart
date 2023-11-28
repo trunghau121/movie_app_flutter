@@ -15,7 +15,7 @@ extension StringX on String? {
 
   String translator(BuildContext context) {
     if(this == null) return "";
-    return AppLocalizations.of(context)?.translate(this!) ?? '';
+    return AppLocalizations.of(context)?.translate(this!) ?? this!;
   }
 }
 

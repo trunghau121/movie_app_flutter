@@ -31,8 +31,6 @@ dependencies:
   simple_connection_checker: ^0.2.1
   dartz: ^0.10.1
   equatable: ^2.0.5
-  intl: ^0.18.1
-  bloc_concurrency: ^0.2.2
   permission_handler: ^11.0.1
   device_preview: ^1.1.0
   get_it: ^7.6.4
